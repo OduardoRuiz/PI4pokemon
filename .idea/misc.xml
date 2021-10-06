@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.25" />
-        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/menu/bottomnav.xml" value="0.20416666666666666" />
+        <entry key="..\:/PI4pokemon/app/src/main/res/drawable/perfil_icon.xml" value="0.3828125" />
+        <entry key="..\:/PI4pokemon/app/src/main/res/drawable/pokemon_logo.xml" value="0.3828125" />
+        <entry key="..\:/PI4pokemon/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.36666666666666664" />
+        <entry key="..\:/PI4pokemon/app/src/main/res/layout/activity_login.xml" value="0.33" />
       </map>
     </option>
   </component>
