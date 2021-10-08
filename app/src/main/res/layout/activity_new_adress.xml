@@ -15,6 +15,7 @@
         android:layout_marginTop="52dp"
         android:layout_marginEnd="300dp"
         android:text="Endereço"
+        android:textColor="#7C7A7A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
