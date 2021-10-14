@@ -141,43 +141,59 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/grama"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="246dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="133dp"
-        android:layout_height="130dp"
-        app:srcCompat="@drawable/Snorlax_icon"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="570dp" />
-
-    <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Eevee_icon"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="596dp" />
+        android:layout_width="413dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2"
+        app:srcCompat="@drawable/grama" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Haunter_icon"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="560dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:srcCompat="@drawable/snorlax" />
 
     <ImageView
         android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:srcCompat="@drawable/eevee" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:srcCompat="@drawable/haunter" />
+
+    <ImageView
+        android:id="@+id/imageView7"
         android:layout_width="29dp"
-        android:layout_height="20dp"
-        app:srcCompat="@drawable/Mew_icon"
-        tools:layout_editor_absoluteX="364dp"
-        tools:layout_editor_absoluteY="535dp" />
+        android:layout_height="37dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:srcCompat="@drawable/mew" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
