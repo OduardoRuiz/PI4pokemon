@@ -20,16 +20,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="600dp">
 
-                <EditText
-                    android:id="@+id/editTextTextMultiLine2"
+                <TextView
+                    android:id="@+id/textView35"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:text="   Categorias"
-                    android:textAlignment="viewStart"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="Categorias"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -39,12 +37,12 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasagua"
                     app:layout_constraintEnd_toStartOf="@+id/imageView25"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -88,12 +86,12 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasdragao"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView37"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
                     android:id="@+id/textView19"
@@ -136,12 +134,12 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasfada"
                     app:layout_constraintEnd_toStartOf="@+id/imageView37"
                     app:layout_constraintStart_toEndOf="@+id/imageView21"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
                     android:id="@+id/textView21"
@@ -418,12 +416,12 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasveneno"
                     app:layout_constraintEnd_toStartOf="@+id/imageView23"
                     app:layout_constraintStart_toEndOf="@+id/imageView25"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
                     android:id="@+id/textView33"
