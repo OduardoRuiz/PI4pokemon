@@ -1,14 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".fragments.inicioFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="inicio" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="789dp">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bannerpikachu"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView20"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/categoriasagua" />
+
+                        <ImageView
+                            android:id="@+id/imageView39"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/categoriasdark" />
+
+                        <ImageView
+                            android:id="@+id/imageView40"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/categoriasdragao" />
+
+                        <ImageView
+                            android:id="@+id/imageView41"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/categoriasfada" />
+
+                        <ImageView
+                            android:id="@+id/imageView42"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/categoriasfantasma" />
+
+                        <ImageView
+                            android:id="@+id/imageView43"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/categoriasgelo" />
+
+                        <ImageView
+                            android:id="@+id/imageView44"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/categoriaseletrico" />
+
+                        <ImageView
+                            android:id="@+id/imageView45"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/categoriasfogo" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="#EFF8FD"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView51"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#EFF8FD"
+                            android:src="@drawable/snorlax" />
+
+                        <ImageView
+                            android:id="@+id/imageView48"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/eevee" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/button9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/pokeBlueBotao"
+                            android:text="Snorlax LV 1" />
+
+                        <Button
+                            android:id="@+id/button10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/pokeBlueBotao"
+                            android:text="Eevee LV 4" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView49"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/haunter" />
+
+                        <ImageView
+                            android:id="@+id/imageView50"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/mew" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/button11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/pokeBlueBotao"
+                            android:text="Haunter LV 10" />
+
+                        <Button
+                            android:id="@+id/buttonIncio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/pokeBlueBotao"
+                            android:text="Mew LV 10" />
+                    </TableRow>
+                </TableLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
