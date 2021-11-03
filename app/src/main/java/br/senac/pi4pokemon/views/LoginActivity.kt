@@ -1,7 +1,8 @@
-package br.senac.pi4pokemon
+package br.senac.pi4pokemon.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.senac.pi4pokemon.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

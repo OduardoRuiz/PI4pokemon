@@ -1,8 +1,8 @@
-package br.senac.pi4pokemon
+package br.senac.pi4pokemon.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityBottomNavigationBinding
 import br.senac.pi4pokemon.fragments.*
 

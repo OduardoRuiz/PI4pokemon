@@ -1,14 +1,10 @@
-package br.senac.pi4pokemon.fragments
+package br.senac.pi4pokemon.views
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import br.senac.pi4pokemon.R
+import br.senac.pi4pokemon.databinding.ActivityMainBinding
 import br.senac.pi4pokemon.databinding.CardPokemonsBinding
-import br.senac.pi4pokemon.databinding.FragmentLendariosBinding
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.ProdutoService
 import com.google.android.material.snackbar.Snackbar
@@ -18,21 +14,19 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class lendariosFragment : Fragment() {
+class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: FragmentLendariosBinding
+    lateinit var binding: ActivityMainBinding
 
-    override fun onCreateView(
+    override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-
-            binding = FragmentLendariosBinding.inflate(layoutInflater)
-        return inflater.inflate(R.layout.fragment_lendarios, container, false)
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
     }
 
     override fun onResume() {
+
         super.onResume()
 
         atualizarPokemons()
@@ -48,14 +42,13 @@ class lendariosFragment : Fragment() {
         val service = retrofit.create(ProdutoService::class.java)
 
         val call = service.listarProdutos()
-
         val callback = object : Callback<List<Produto>> {
 
             override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {
                 if (response.isSuccessful) {
                     val listaProduto = response.body()
 
-                        atualizarUI(listaProduto)
+                    atualizarUI(listaProduto)
 
 
 

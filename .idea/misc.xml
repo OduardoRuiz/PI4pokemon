@@ -10,9 +10,10 @@
         <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/activity_new_adress.xml" value="0.25" />
         <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/activity_product_view.xml" value="0.2" />
         <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/activity_register.xml" value="0.22" />
-        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/fragment_categorias.xml" value="0.33" />
-        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/fragment_inicio.xml" value="0.2" />
-        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/fragment_lendarios.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/card_pokemons.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/fragment_categorias.xml" value="0.25" />
+        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/fragment_inicio.xml" value="0.25" />
+        <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/fragment_lendarios.xml" value="0.25" />
         <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/fragment_meucarrinho.xml" value="0.27241139680333565" />
         <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/layout/fragment_minhaconta.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Carlo/AndroidStudioProjects/PI4pokemon/app/src/main/res/menu/bottomnav.xml" value="0.5" />
