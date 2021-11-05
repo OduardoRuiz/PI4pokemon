@@ -28,20 +28,16 @@ class lendariosFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
 
-            binding = FragmentLendariosBinding.inflate(layoutInflater)
-        return inflater.inflate(R.layout.fragment_lendarios, container, false)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
+        binding = FragmentLendariosBinding.inflate(layoutInflater)
         atualizarPokemons()
+        return binding.root
     }
+
 
     fun atualizarPokemons() {
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://127.0.0.1:8000")
+            .baseUrl("http://10.0.2.2:8000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -55,13 +51,13 @@ class lendariosFragment : Fragment() {
                 if (response.isSuccessful) {
                     val listaProduto = response.body()
 
-                        atualizarUI(listaProduto)
+                    atualizarUI(listaProduto)
 
 
 
                 } else {
 
-                    Snackbar.make(binding.container, "Não foi possivel carregar os pokemons",
+                    Snackbar.make(binding.containerProdutos, "Não foi possivel carregar os pokemons",
                         Snackbar.LENGTH_LONG).show()
 
                     Log.e("ERROR", response.errorBody().toString())
@@ -71,7 +67,7 @@ class lendariosFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
-                Snackbar.make(binding.container, "Não foi possivel conectar ao servidor",
+                Snackbar.make(binding.containerProdutos, "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
 
                 Log.e("ERROR", "Falha ao conectar ao serviço", t)
@@ -86,13 +82,13 @@ class lendariosFragment : Fragment() {
     }
 
     fun atualizarUI(lista: List<Produto>?) {
-        binding.container.removeAllViews()
+        binding.containerProdutos.removeAllViews()
         lista?.forEach {
             val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
             pokemonBinding.nomePokemon.text = it.nome
             pokemonBinding.pontosPokemon.text = it.preco
 
-            binding.container.addView(pokemonBinding.root)
+            binding.containerProdutos.addView(pokemonBinding.root)
 
         }
 

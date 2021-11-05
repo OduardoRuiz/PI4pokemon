@@ -8,7 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PI4pokemon">
+        android:theme="@style/Theme.PI4pokemon"
+        android:usesCleartextTraffic="true"
+        >
         <activity
             android:name=".views.ProductViewActivity"
             android:exported="true">
@@ -67,5 +69,8 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET">
+
+    </uses-permission>
 
 </manifest>
