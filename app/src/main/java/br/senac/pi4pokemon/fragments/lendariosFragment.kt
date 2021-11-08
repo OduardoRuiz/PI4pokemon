@@ -10,8 +10,10 @@ import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.CardPokemonsBinding
 import br.senac.pi4pokemon.databinding.FragmentLendariosBinding
 import br.senac.pi4pokemon.model.Produto
+import br.senac.pi4pokemon.services.API
 import br.senac.pi4pokemon.services.ProdutoService
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,6 +31,11 @@ class lendariosFragment : Fragment() {
     ): View? {
 
         binding = FragmentLendariosBinding.inflate(layoutInflater)
+
+        binding.swipeRefreshTodos.setOnRefreshListener {
+            atualizarPokemons()
+
+        }
         atualizarPokemons()
         return binding.root
     }
@@ -36,18 +43,15 @@ class lendariosFragment : Fragment() {
 
     fun atualizarPokemons() {
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8000")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
 
-        val service = retrofit.create(ProdutoService::class.java)
 
-        val call = service.listarProdutos()
+
+
 
         val callback = object : Callback<List<Produto>> {
 
             override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {
+                progressBarOff()
                 if (response.isSuccessful) {
                     val listaProduto = response.body()
 
@@ -67,6 +71,7 @@ class lendariosFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
+                progressBarOff()
                 Snackbar.make(binding.containerProdutos, "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
 
@@ -76,7 +81,8 @@ class lendariosFragment : Fragment() {
 
 
         }
-        call.enqueue(callback)
+        API.pokemon.listarProdutos().enqueue(callback)
+        progressBarOn()
 
 
     }
@@ -88,9 +94,21 @@ class lendariosFragment : Fragment() {
             pokemonBinding.nomePokemon.text = it.nome
             pokemonBinding.pontosPokemon.text = it.preco
 
-            binding.containerProdutos.addView(pokemonBinding.root)
+            Picasso.get()
+                .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
+
+                binding.containerProdutos.addView(pokemonBinding.root)
 
         }
 
     }
+    fun progressBarOff() {
+        binding.progressBar.visibility =  View.GONE
+        binding.swipeRefreshTodos.isRefreshing = false
+    }
+    fun progressBarOn() {
+        binding.progressBar.visibility =  View.VISIBLE
+        binding.swipeRefreshTodos.isRefreshing = true
+    }
+
 }
