@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.senac.pi4pokemon">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PI4pokemon"
-        android:usesCleartextTraffic="true"
-        >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".views.PedidoConfirmadoActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.ConfirmacaoActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".views.ProductViewActivity"
             android:exported="true">
@@ -23,9 +42,7 @@
         <activity
             android:name=".views.NewAdressActivity"
             android:exported="true"
-            android:parentActivityName=".views.NewAdressActivity"
-            >
-
+            android:parentActivityName=".views.NewAdressActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,8 +86,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET">
-
-    </uses-permission>
 
 </manifest>

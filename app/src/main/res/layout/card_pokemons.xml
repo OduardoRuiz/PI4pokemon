@@ -13,6 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -25,8 +26,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardImagem"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 app:cardCornerRadius="5dp">
 
@@ -45,7 +46,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/pontosPokemon"
@@ -64,6 +65,35 @@
                         android:text="Pontos" />
                 </TableRow>
 
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/buttonComprarPokemon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_margin="15dp"
+
+                        android:backgroundTint="@color/pokeYellow"
+                        android:text="Comprar"
+                        android:textColor="#455A64" />
+
+                    <Button
+                        android:id="@+id/buttonVisualizarPokemon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_margin="15dp"
+                        android:background="@color/pokeBlueBotao"
+                        android:backgroundTint="@color/pokeBlueBotao"
+                        android:text="Visualizar Pokemon" />
+                </TableRow>
             </TableLayout>
 
         </LinearLayout>
