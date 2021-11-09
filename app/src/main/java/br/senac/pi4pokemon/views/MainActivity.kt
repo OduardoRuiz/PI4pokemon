@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         val service = retrofit.create(ProdutoService::class.java)
 
-        val call = service.listarProdutos()
+        val call = service.pesquisarProdutos()
         val callback = object : Callback<List<Produto>> {
 
             override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {

@@ -7,7 +7,7 @@ data class Produto(
 	val createdAt: String,
 	val nome: String,
 	val id: Int,
-	val categoriaId: Int,
+	val categoria_id: Int,
 	val quantidade: String,
 	val deletedAt: String,
 	val descricao: String,

@@ -12,8 +12,18 @@ interface ProdutoService {
    fun listarProdutos(): Call<List<Produto>>
 
    //Busca produtos por nome
-   @GET("/api/produtos/buscar/{nome}")
-   fun pesquisarProdutos(@Path("nome") nome: String): Call<List<Produto>>
+  // @GET("/api/produtos/buscar/{nome}")
+   //fun pesquisarProdutos(@Path("nome") nome: String): Call<List<Produto>>
+
+   //Busca produtos por nome
+    @GET("/api/produto/2")
+   fun pesquisarProdutos(): Call<List<Produto>>
+
+
+
+   //Busca produto por categoria
+   @GET("/api/produtos/categoria/buscar/Terra")
+   fun pesquisarCategoria() : Call<List<Produto>>
 
 
 

@@ -16,7 +16,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <FrameLayout
+                android:id="@+id/ContainerCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </FrameLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="600dp">
 
@@ -33,7 +45,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView21"
+                    android:id="@+id/imageAguaCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="24dp"
@@ -45,7 +57,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/textViewAguaCategoria"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -55,7 +67,7 @@
                     android:textAlignment="center"
                     app:layout_constraintEnd_toStartOf="@+id/textView12"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView21" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageAguaCategoria" />
 
                 <ImageView
                     android:id="@+id/imageView22"
@@ -78,7 +90,7 @@
                     android:layout_marginEnd="24dp"
                     android:text="Fada"
                     app:layout_constraintEnd_toStartOf="@+id/textView19"
-                    app:layout_constraintStart_toEndOf="@+id/textView11"
+                    app:layout_constraintStart_toEndOf="@+id/textViewAguaCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/imageView25" />
 
                 <ImageView
@@ -138,7 +150,7 @@
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasfada"
                     app:layout_constraintEnd_toStartOf="@+id/imageView37"
-                    app:layout_constraintStart_toEndOf="@+id/imageView21"
+                    app:layout_constraintStart_toEndOf="@+id/imageAguaCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
@@ -161,7 +173,7 @@
                     android:src="@drawable/categoriasfantasma"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView38"
-                    app:layout_constraintTop_toBottomOf="@+id/textView32" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewTerraCategoria" />
 
                 <TextView
                     android:id="@+id/textView22"
@@ -229,7 +241,7 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasgrama"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView36"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewTerraCategoria"
                     app:layout_constraintStart_toEndOf="@+id/imageView31"
                     app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -359,7 +371,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="32dp"
                     android:text="Grama"
-                    app:layout_constraintEnd_toStartOf="@+id/textView32"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewTerraCategoria"
                     app:layout_constraintStart_toEndOf="@+id/textView31"
                     app:layout_constraintTop_toBottomOf="@+id/imageView29" />
 
@@ -373,7 +385,7 @@
                     android:src="@drawable/categoriaspsiquico"
                     app:layout_constraintEnd_toStartOf="@+id/imageView31"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAguaCategoria" />
 
                 <TextView
                     android:id="@+id/textView31"
@@ -388,28 +400,36 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView31" />
 
                 <ImageView
-                    android:id="@+id/imageView36"
+                    android:id="@+id/imageViewTerraCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
+                    android:clickable="true"
+                    android:contextClickable="true"
+                    android:longClickable="true"
                     android:src="@drawable/categoriasterra"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView29"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView20"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
                 <TextView
-                    android:id="@+id/textView32"
+                    android:id="@+id/textViewTerraCategoria"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="32dp"
+                    android:clickable="true"
+                    android:contextClickable="true"
+                    android:linksClickable="true"
+                    android:longClickable="true"
                     android:text="Terra"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView30"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView36" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewTerraCategoria" />
 
                 <ImageView
                     android:id="@+id/imageView37"
@@ -458,6 +478,20 @@
                     app:layout_constraintEnd_toStartOf="@+id/textView29"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+
+                <Button
+                    android:id="@+id/buttonCat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="71dp"
+                    android:layout_marginTop="66dp"
+                    android:layout_marginEnd="66dp"
+                    android:layout_marginBottom="21dp"
+                    android:text="Button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView32"
+                    app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

@@ -38,6 +38,7 @@ class lendariosFragment : Fragment() {
         }
         atualizarPokemons()
         return binding.root
+
     }
 
 
@@ -81,7 +82,7 @@ class lendariosFragment : Fragment() {
 
 
         }
-        API.pokemon.listarProdutos().enqueue(callback)
+        API.pokemon.pesquisarProdutos().enqueue(callback)
         progressBarOn()
 
 
