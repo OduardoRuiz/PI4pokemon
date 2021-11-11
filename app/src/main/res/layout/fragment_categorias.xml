@@ -12,23 +12,13 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/containerCategorias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/ContainerCategoria"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </FrameLayout>
-
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+                android:id="@+id/constraintLayoutCategorias"
                 android:layout_width="match_parent"
                 android:layout_height="600dp">
 
@@ -52,7 +42,7 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasagua"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView25"
+                    app:layout_constraintEnd_toStartOf="@+id/imageFadaCategoria"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
@@ -70,14 +60,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageAguaCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView22"
+                    android:id="@+id/imageDarkCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasdark"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView24"
+                    app:layout_constraintEnd_toStartOf="@+id/imageEletricoCategoria"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
@@ -91,10 +81,10 @@
                     android:text="Fada"
                     app:layout_constraintEnd_toStartOf="@+id/textView19"
                     app:layout_constraintStart_toEndOf="@+id/textViewAguaCategoria"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageFadaCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView23"
+                    android:id="@+id/imageDragaoCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
@@ -102,7 +92,7 @@
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasdragao"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView37"
+                    app:layout_constraintStart_toEndOf="@+id/imagePoisonCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
@@ -115,18 +105,18 @@
                     android:text="Venenoso"
                     app:layout_constraintEnd_toStartOf="@+id/textView20"
                     app:layout_constraintStart_toEndOf="@+id/textView12"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView37" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagePoisonCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView24"
+                    android:id="@+id/imageEletricoCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriaseletrico"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView28"
-                    app:layout_constraintStart_toEndOf="@+id/imageView22"
+                    app:layout_constraintEnd_toStartOf="@+id/imageGeloCategoria"
+                    app:layout_constraintStart_toEndOf="@+id/imageDarkCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
                 <TextView
@@ -139,17 +129,17 @@
                     android:text="Dragão"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView19"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageDragaoCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView25"
+                    android:id="@+id/imageFadaCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasfada"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView37"
+                    app:layout_constraintEnd_toStartOf="@+id/imagePoisonCategoria"
                     app:layout_constraintStart_toEndOf="@+id/imageAguaCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
@@ -161,10 +151,10 @@
                     android:layout_marginTop="8dp"
                     android:text="Pedra"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView34" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagePedraCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView26"
+                    android:id="@+id/imageFantasmaCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
@@ -172,7 +162,7 @@
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasfantasma"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView38"
+                    app:layout_constraintStart_toEndOf="@+id/imageVoadorCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textViewTerraCategoria" />
 
                 <TextView
@@ -183,17 +173,17 @@
                     android:layout_marginTop="8dp"
                     android:text="Metal"
                     app:layout_constraintStart_toEndOf="@+id/textView21"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView32" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageMetalCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView27"
+                    android:id="@+id/imageFogoCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasfogo"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView33"
+                    app:layout_constraintEnd_toStartOf="@+id/imageNormalCategoria"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
@@ -207,18 +197,18 @@
                     android:text="Gelo"
                     app:layout_constraintEnd_toStartOf="@+id/textView24"
                     app:layout_constraintStart_toEndOf="@+id/textView27"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageGeloCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView28"
+                    android:id="@+id/imageGeloCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasgelo"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView30"
-                    app:layout_constraintStart_toEndOf="@+id/imageView24"
+                    app:layout_constraintEnd_toStartOf="@+id/imageInsetoCategoria"
+                    app:layout_constraintStart_toEndOf="@+id/imageEletricoCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
                 <TextView
@@ -231,10 +221,10 @@
                     android:text="Inseto"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView23"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView30" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageInsetoCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView29"
+                    android:id="@+id/imageGramaCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
@@ -242,7 +232,7 @@
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasgrama"
                     app:layout_constraintEnd_toStartOf="@+id/imageViewTerraCategoria"
-                    app:layout_constraintStart_toEndOf="@+id/imageView31"
+                    app:layout_constraintStart_toEndOf="@+id/imageLutadorCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
                 <TextView
@@ -255,10 +245,10 @@
                     android:text="Fantasma"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView26"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView26" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageFantasmaCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView30"
+                    android:id="@+id/imageInsetoCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
@@ -266,7 +256,7 @@
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasinseto"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView28"
+                    app:layout_constraintStart_toEndOf="@+id/imageGeloCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
                 <TextView
@@ -279,18 +269,18 @@
                     android:text="Voador"
                     app:layout_constraintEnd_toStartOf="@+id/textView25"
                     app:layout_constraintStart_toEndOf="@+id/textView29"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView38" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageVoadorCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView31"
+                    android:id="@+id/imageLutadorCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriaslutador"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView29"
-                    app:layout_constraintStart_toEndOf="@+id/imageView35"
+                    app:layout_constraintEnd_toStartOf="@+id/imageGramaCategoria"
+                    app:layout_constraintStart_toEndOf="@+id/imagePsiquicoCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
                 <TextView
@@ -303,16 +293,16 @@
                     android:text="Elétrico"
                     app:layout_constraintEnd_toStartOf="@+id/textView23"
                     app:layout_constraintStart_toEndOf="@+id/textView28"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageEletricoCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView32"
+                    android:id="@+id/imageMetalCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="32dp"
                     android:src="@drawable/categoriasmetal"
-                    app:layout_constraintStart_toEndOf="@+id/imageView34"
+                    app:layout_constraintStart_toEndOf="@+id/imagePedraCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
                 <TextView
@@ -325,18 +315,18 @@
                     android:text="Dark"
                     app:layout_constraintEnd_toStartOf="@+id/textView27"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageDarkCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView33"
+                    android:id="@+id/imageNormalCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasnormal"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView38"
-                    app:layout_constraintStart_toEndOf="@+id/imageView27"
+                    app:layout_constraintEnd_toStartOf="@+id/imageVoadorCategoria"
+                    app:layout_constraintStart_toEndOf="@+id/imageFogoCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
                 <TextView
@@ -349,17 +339,17 @@
                     android:text="Normal"
                     app:layout_constraintEnd_toStartOf="@+id/textView26"
                     app:layout_constraintStart_toEndOf="@+id/textView34"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView33" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageNormalCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView34"
+                    android:id="@+id/imagePedraCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriaspedra"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView32"
+                    app:layout_constraintEnd_toStartOf="@+id/imageMetalCategoria"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
@@ -373,17 +363,17 @@
                     android:text="Grama"
                     app:layout_constraintEnd_toStartOf="@+id/textViewTerraCategoria"
                     app:layout_constraintStart_toEndOf="@+id/textView31"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView29" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageGramaCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView35"
+                    android:id="@+id/imagePsiquicoCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriaspsiquico"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView31"
+                    app:layout_constraintEnd_toStartOf="@+id/imageLutadorCategoria"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewAguaCategoria" />
 
@@ -397,7 +387,7 @@
                     android:text="Lutador"
                     app:layout_constraintEnd_toStartOf="@+id/textView30"
                     app:layout_constraintStart_toEndOf="@+id/textView33"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView31" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageLutadorCategoria" />
 
                 <ImageView
                     android:id="@+id/imageViewTerraCategoria"
@@ -411,9 +401,8 @@
                     android:longClickable="true"
                     android:src="@drawable/categoriasterra"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView29"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    app:layout_constraintStart_toEndOf="@+id/imageGramaCategoria"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
                 <TextView
                     android:id="@+id/textViewTerraCategoria"
@@ -432,15 +421,15 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageViewTerraCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView37"
+                    android:id="@+id/imagePoisonCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasveneno"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView23"
-                    app:layout_constraintStart_toEndOf="@+id/imageView25"
+                    app:layout_constraintEnd_toStartOf="@+id/imageDragaoCategoria"
+                    app:layout_constraintStart_toEndOf="@+id/imageFadaCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
                 <TextView
@@ -453,18 +442,18 @@
                     android:text="Psíquico"
                     app:layout_constraintEnd_toStartOf="@+id/textView31"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagePsiquicoCategoria" />
 
                 <ImageView
-                    android:id="@+id/imageView38"
+                    android:id="@+id/imageVoadorCategoria"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/categoriasvoador"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView26"
-                    app:layout_constraintStart_toEndOf="@+id/imageView33"
+                    app:layout_constraintEnd_toStartOf="@+id/imageFantasmaCategoria"
+                    app:layout_constraintStart_toEndOf="@+id/imageNormalCategoria"
                     app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
                 <TextView
@@ -477,21 +466,26 @@
                     android:text="Fogo"
                     app:layout_constraintEnd_toStartOf="@+id/textView29"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageFogoCategoria" />
 
-                <Button
-                    android:id="@+id/buttonCat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="71dp"
-                    android:layout_marginTop="66dp"
-                    android:layout_marginEnd="66dp"
-                    android:layout_marginBottom="21dp"
-                    android:text="Button"
+                <ProgressBar
+                    android:id="@+id/progressBarCat"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="92dp"
+                    android:layout_height="78dp"
+                    android:layout_marginStart="97dp"
+                    android:layout_marginTop="83dp"
+                    android:layout_marginEnd="86dp"
+                    android:layout_marginBottom="32dp"
+                    android:indeterminateDrawable="@drawable/animation"
+                    android:progressDrawable="@drawable/animation"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView32"
-                    app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageMetalCategoria"
+                    app:layout_constraintTop_toBottomOf="@+id/imageGeloCategoria"
+                    app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

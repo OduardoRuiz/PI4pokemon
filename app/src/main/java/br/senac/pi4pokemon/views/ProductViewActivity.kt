@@ -3,6 +3,7 @@ package br.senac.pi4pokemon.views
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityProductViewBinding
 import br.senac.pi4pokemon.model.Produto
@@ -18,6 +19,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ProductViewActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityProductViewBinding
+
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityProductViewBinding.inflate(layoutInflater)
@@ -40,6 +46,7 @@ class ProductViewActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {
 
                 if (response.isSuccessful) {
+                    progressBarOff()
                     val listaProduto = response.body()
 
                     atualizarUI(listaProduto)
@@ -58,7 +65,7 @@ class ProductViewActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
-
+                progressBarOff()
                 Snackbar.make(binding.textView9, "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
 
@@ -68,7 +75,10 @@ class ProductViewActivity : AppCompatActivity() {
 
 
         }
-        API.pokemon.pesquisarProdutos().enqueue(callback)
+        //id default como 2 para a product view activity nao ficar em branco ao ser rodada direto
+        var idPokemon = intent.getIntExtra("id", 2)
+          API.pokemon.pesquisarProdutos(idPokemon).enqueue(callback)
+        progressBarOn()
 
 
 
@@ -83,9 +93,15 @@ class ProductViewActivity : AppCompatActivity() {
             pokemonBinding.textDescricaoProdutoView.text = it.descricao
 
 
+
+
+
+
+
+
             if (it.categoria_id ==  3 ) {
                 pokemonBinding.buttonTipoProductView.text = "Funciona"
-                pokemonBinding.buttonTipoProductView.setBackgroundColor(R.color.pokeBlue)
+                pokemonBinding.buttonTipoProductView.setBackgroundColor(getColor(R.color.pokeYellow))
 
             }
 
@@ -94,6 +110,14 @@ class ProductViewActivity : AppCompatActivity() {
             binding.constraintLayoutProductView.addView(pokemonBinding.root)
 
         }
+
+    }
+    fun progressBarOff() {
+        binding.progressBarProd.visibility =  View.GONE
+
+    }
+    fun progressBarOn() {
+        binding.progressBarProd.visibility =  View.VISIBLE
 
     }
 

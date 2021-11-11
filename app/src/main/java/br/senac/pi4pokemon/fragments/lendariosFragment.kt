@@ -1,5 +1,6 @@
 package br.senac.pi4pokemon.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import br.senac.pi4pokemon.databinding.FragmentLendariosBinding
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
 import br.senac.pi4pokemon.services.ProdutoService
+import br.senac.pi4pokemon.views.ProductViewActivity
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import retrofit2.Call
@@ -82,7 +84,7 @@ class lendariosFragment : Fragment() {
 
 
         }
-        API.pokemon.pesquisarProdutos().enqueue(callback)
+        API.pokemon.listarProdutos().enqueue(callback)
         progressBarOn()
 
 
@@ -92,8 +94,17 @@ class lendariosFragment : Fragment() {
         binding.containerProdutos.removeAllViews()
         lista?.forEach {
             val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
+            val idAqui = it.id
             pokemonBinding.nomePokemon.text = it.nome
             pokemonBinding.pontosPokemon.text = it.preco
+            pokemonBinding.buttonVisualizarPokemon.setOnClickListener {
+
+
+                val intent = Intent(context, ProductViewActivity::class.java)
+                intent.putExtra("id",idAqui)
+                startActivity(intent)
+
+            }
 
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)

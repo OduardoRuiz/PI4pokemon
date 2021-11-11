@@ -1,6 +1,7 @@
 package br.senac.pi4pokemon.services
 
 import br.senac.pi4pokemon.model.Produto
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -16,14 +17,16 @@ interface ProdutoService {
    //fun pesquisarProdutos(@Path("nome") nome: String): Call<List<Produto>>
 
    //Busca produtos por nome
-    @GET("/api/produto/2")
-   fun pesquisarProdutos(): Call<List<Produto>>
+    @GET("/api/produto/{id}")
+   fun pesquisarProdutos(@Path("id")id: Int): Call<List<Produto>>
 
-
+   //lista todos os produtos
+   @GET("/api/produtos/2")
+   fun testeProduto(): Call<List<Produto>>
 
    //Busca produto por categoria
-   @GET("/api/produtos/categoria/buscar/Terra")
-   fun pesquisarCategoria() : Call<List<Produto>>
+   @GET("/api/produtos/categoria/buscar/{categoria}")
+   fun pesquisarCategoria(@Path("categoria")  categoria: String) : Call<List<Produto>>
 
 
 

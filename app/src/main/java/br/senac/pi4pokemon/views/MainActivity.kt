@@ -17,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+    var idteste = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         val service = retrofit.create(ProdutoService::class.java)
 
-        val call = service.pesquisarProdutos()
+        val call = service.pesquisarProdutos(idteste)
         val callback = object : Callback<List<Produto>> {
 
             override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {
@@ -84,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
             pokemonBinding.nomePokemon.text = it.nome
             pokemonBinding.pontosPokemon.text = it.preco
-
+            idteste = it.id
             binding.container.addView(pokemonBinding.root)
 
         }

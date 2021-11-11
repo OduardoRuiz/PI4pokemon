@@ -12,17 +12,14 @@ class BottomNavigation : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
-
-
-
-
         super.onCreate(savedInstanceState)
         binding = ActivityBottomNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNavigationView.itemIconTintList = null
 
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, inicioFragment()).commit()
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.categorias -> {
