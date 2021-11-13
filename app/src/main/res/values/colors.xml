@@ -11,5 +11,23 @@
     <color name="pokeBlue">#3166B1</color>
     <color name="pokeBlueFundo">#E4F2FB</color>
     <color name="pokeBlueBotao">#3466AF</color>
+    <color name="pokeGrama">#9BCC50</color>
+    <color name="pokeVenenoso">#B97FC9</color>
+    <color name="pokeFogo">#FD7D24</color>
+    <color name="pokeAgua">#4592C4</color>
+    <color name="pokeInseto">#729F3F</color>
+    <color name="pokeNormal">#A4ACAF</color>
+    <color name="poleEletrico">#EED535</color>
+    <color name="pokeFada">#FDB9E9</color>
+    <color name="pokeLutador">#D56723</color>
+    <color name="pokePsiquico">#F366B9</color>
+    <color name="pokePedra">#A38C21</color>
+    <color name="pokeAco">#9EB7B8</color>
+    <color name="pokeGelo">#51C4E7</color>
+    <color name="pokeFantasma">#7B62A3</color>
+    <color name="pokeDragao">#F16E57</color>
+    <color name="pokeVoador">#3DC7EF</color>
+    <color name="pokeTerra1">#F7DE3F</color>
+    <color name="pokeTerra2">#AB9842</color>
 
 </resources>

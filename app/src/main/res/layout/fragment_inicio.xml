@@ -198,9 +198,11 @@
                             android:backgroundTint="@color/pokeBlueBotao"
                             android:text="Mew LV 10" />
                     </TableRow>
+
                 </TableLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
     </ScrollView>
 
