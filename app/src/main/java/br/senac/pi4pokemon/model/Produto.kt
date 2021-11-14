@@ -1,6 +1,7 @@
 package br.senac.pi4pokemon.model
 
 data class Produto(
+
 	val preco: String,
 	val updatedAt: String,
 	val imagem: String,
@@ -11,4 +12,5 @@ data class Produto(
 	val quantidade: String,
 	val deletedAt: String,
 	val descricao: String,
+
 )

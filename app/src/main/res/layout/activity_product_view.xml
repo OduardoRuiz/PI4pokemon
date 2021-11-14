@@ -15,6 +15,7 @@
         android:background="@color/pokeBlueFundo"
         tools:context=".views.ProductViewActivity">
 
+
         <ProgressBar
             android:id="@+id/progressBarProd"
             style="?android:attr/progressBarStyle"
@@ -29,6 +30,7 @@
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
         <TextView
             android:id="@+id/nomePokemonProductView"
             android:layout_width="0dp"
@@ -129,7 +131,7 @@
             app:srcCompat="@drawable/coin" />
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/buttonComprarAgora"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -144,7 +146,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView17" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/buttonAddCarrinho"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -155,7 +157,7 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button6" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonComprarAgora" />
 
         <TextView
             android:id="@+id/textView6"
@@ -167,7 +169,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button7" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonAddCarrinho" />
 
         <TextView
             android:id="@+id/textDescricaoProdutoView"

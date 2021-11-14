@@ -1,5 +1,6 @@
 package br.senac.pi4pokemon.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,20 +8,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.CardPokemonsBinding
 import br.senac.pi4pokemon.databinding.FragmentLendariosBinding
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
-import br.senac.pi4pokemon.services.ProdutoService
 import br.senac.pi4pokemon.views.ProductViewActivity
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.coroutines.coroutineContext
 
 class lendariosFragment : Fragment() {
 
@@ -84,7 +82,7 @@ class lendariosFragment : Fragment() {
 
 
         }
-        API.pokemon.listarProdutos().enqueue(callback)
+            API(this.requireContext()).pokemonAberto.listarProdutos().enqueue(callback)
         progressBarOn()
 
 
@@ -97,7 +95,7 @@ class lendariosFragment : Fragment() {
             val idAqui = it.id
             pokemonBinding.nomePokemon.text = it.nome
             pokemonBinding.pontosPokemon.text = it.preco
-            pokemonBinding.buttonVisualizarPokemon.setOnClickListener {
+            pokemonBinding.linearLayoutCard.setOnClickListener {
 
 
                 val intent = Intent(context, ProductViewActivity::class.java)

@@ -1,11 +1,15 @@
 package br.senac.pi4pokemon.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityProductViewBinding
+import br.senac.pi4pokemon.fragments.inicioFragment
+import br.senac.pi4pokemon.fragments.lendariosFragment
+import br.senac.pi4pokemon.fragments.meuCarrinhoFragment
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
 import com.google.android.material.snackbar.Snackbar
@@ -13,8 +17,6 @@ import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class ProductViewActivity : AppCompatActivity() {
 
@@ -31,6 +33,8 @@ class ProductViewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         atualizarPokemons()
+
+
     }
 
 
@@ -77,7 +81,7 @@ class ProductViewActivity : AppCompatActivity() {
         }
         //id default como 2 para a product view activity nao ficar em branco ao ser rodada direto
         var idPokemon = intent.getIntExtra("id", 2)
-          API.pokemon.pesquisarProdutos(idPokemon).enqueue(callback)
+         API(this).pokemonAberto.pesquisarProdutos(idPokemon).enqueue(callback)
         progressBarOn()
 
 
@@ -87,15 +91,18 @@ class ProductViewActivity : AppCompatActivity() {
     fun atualizarUI(lista: List<Produto>?) {
         binding.constraintLayoutProductView.removeAllViews()
         lista?.forEach {
+            val idAquiFrag = it.id
             val pokemonBinding = ActivityProductViewBinding.inflate(layoutInflater)
             pokemonBinding.nomePokemonProductView.text = it.nome
             pokemonBinding.textPontosPokemonProductView.text = it.preco
             pokemonBinding.textDescricaoProdutoView.text = it.descricao
-
-
-
-
-
+        pokemonBinding.buttonAddCarrinho.setOnClickListener {
+            val intent = Intent(this, meuCarrinhoFragment::class.java)
+            intent.putExtra("id", idAquiFrag)
+            startActivity(intent)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.constraintLayoutProductView, meuCarrinhoFragment()).commit()
+        }
 
 
 

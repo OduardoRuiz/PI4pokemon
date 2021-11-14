@@ -138,7 +138,7 @@ class categoriasFragment : Fragment() {
 
         }
         fun conectar() {
-            API.pokemon.pesquisarCategoria("${clicandoFuncao}").enqueue(callback)
+            API(this.requireContext()).pokemonAberto.pesquisarCategoria("${clicandoFuncao}").enqueue(callback)
 
         }
         conectar()
@@ -153,7 +153,7 @@ class categoriasFragment : Fragment() {
             pokemonBinding.nomePokemon.text = it.nome
             pokemonBinding.pontosPokemon.text = it.preco
 
-            pokemonBinding.buttonVisualizarPokemon.setOnClickListener {
+            pokemonBinding.linearLayoutCard.setOnClickListener {
 
 
                 val intent = Intent(context, ProductViewActivity::class.java)

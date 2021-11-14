@@ -20,9 +20,6 @@ interface ProdutoService {
     @GET("/api/produto/{id}")
    fun pesquisarProdutos(@Path("id")id: Int): Call<List<Produto>>
 
-   //lista todos os produtos
-   @GET("/api/produtos/2")
-   fun testeProduto(): Call<List<Produto>>
 
    //Busca produto por categoria
    @GET("/api/produtos/categoria/buscar/{categoria}")
