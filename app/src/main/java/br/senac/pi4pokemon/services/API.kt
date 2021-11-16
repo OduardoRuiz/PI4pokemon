@@ -74,5 +74,10 @@ class API(private val context: Context) {
         return retrofitAberto.create(CarrinhoService::class.java)
     }
 
+    val categoria: CategoriaService
+        get() {
+            return retrofitAberto.create(CategoriaService::class.java)
+        }
+
 
 }

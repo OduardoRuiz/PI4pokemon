@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
 import br.senac.pi4pokemon.R
+import br.senac.pi4pokemon.databinding.ActivityMainBinding
 import br.senac.pi4pokemon.databinding.CardPokemonsBinding
 import br.senac.pi4pokemon.databinding.FragmentCategoriasBinding
+import br.senac.pi4pokemon.model.Categoria
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
 import br.senac.pi4pokemon.views.ProductViewActivity
@@ -22,7 +24,7 @@ import retrofit2.Response
 
 class categoriasFragment : Fragment() {
     lateinit var binding: FragmentCategoriasBinding
-    var clicadoCategoria = ""
+
     override fun onCreateView(
 
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,77 +33,90 @@ class categoriasFragment : Fragment() {
 
         binding = FragmentCategoriasBinding.inflate(layoutInflater)
 
-        binding.imageViewTerraCategoria.setOnClickListener {
-
-            clicadoCategoria = "terra"
-            atualizarCategoria(clicadoCategoria)
-        }
-        binding.imageAguaCategoria.setOnClickListener {
-
-            clicadoCategoria = "agua"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageEletricoCategoria.setOnClickListener {
-
-            clicadoCategoria = "Trovão"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageDarkCategoria.setOnClickListener {
-
-            clicadoCategoria = "Dark"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageDragaoCategoria.setOnClickListener {
-
-            clicadoCategoria = "Dragao"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageFadaCategoria.setOnClickListener {
-
-            clicadoCategoria = "fada"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageFantasmaCategoria.setOnClickListener {
-
-            clicadoCategoria = "Fantasma"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageFogoCategoria.setOnClickListener {
-
-            clicadoCategoria = "Fogo"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageGeloCategoria.setOnClickListener {
-
-            clicadoCategoria = "Gelo"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageGramaCategoria.setOnClickListener {
-
-            clicadoCategoria = "Grama"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-        binding.imageInsetoCategoria.setOnClickListener {
-
-            clicadoCategoria = "Inseto"
-            atualizarCategoria(clicadoCategoria)
-
-        }
-
+        atualizarCategoria()
         return binding.root
+
     }
 
 
-    fun atualizarCategoria(clicandoFuncao: String) {
+    fun atualizarCategoria() {
+
+
+        val callback = object : Callback<List<Categoria>> {
+
+            override fun onResponse(
+                call: Call<List<Categoria>>,
+                response: Response<List<Categoria>>,
+            ) {
+                progressBarOff()
+                if (response.isSuccessful) {
+
+
+                    val listaProduto = response.body()
+                    atualizarInterface(listaProduto)
+
+
+                } else {
+
+                    Snackbar.make(binding.containerCateg,
+                        "Não foi possivel carregar os pokemons",
+                        Snackbar.LENGTH_LONG).show()
+
+                    Log.e("ERROR", response.errorBody().toString())
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<List<Categoria>>, t: Throwable) {
+                progressBarOff()
+                Snackbar.make(binding.gridLayoutCategoria,
+                    "Não foi possivel conectar ao servidor",
+                    Snackbar.LENGTH_LONG).show()
+
+                Log.e("ERROR", "Falha ao conectar ao serviço", t)
+
+            }
+
+
+        }
+
+        fun conectar() {
+            API(this.requireContext()).categoria.listarCategoria().enqueue(callback)
+
+        }
+        conectar()
+        progressBarOn()
+
+    }
+
+    fun atualizarInterface(lista: List<Categoria>?) {
+        binding.gridLayoutCategoria.removeAllViews()
+        lista?.forEach {
+            val pokemonBinding = FragmentCategoriasBinding.inflate(layoutInflater)
+            var idAqui = it.nome
+            pokemonBinding.textViewCategoria.text = it.nome
+
+
+            pokemonBinding.imageViewCategoria.setOnClickListener {
+
+
+                atualizarCategoria2(idAqui)
+
+            }
+
+
+            Picasso.get()
+                .load("http://10.0.2.2:8000/${it.icone}").into(pokemonBinding.imageViewCategoria)
+
+            binding.gridLayoutCategoria.addView(pokemonBinding.root)
+
+        }
+
+    }
+
+
+    fun atualizarCategoria2(nomeCategoria: String) {
 
 
         val callback = object : Callback<List<Produto>> {
@@ -110,12 +125,12 @@ class categoriasFragment : Fragment() {
                 if (response.isSuccessful) {
                     progressBarOff()
                     val listaProduto = response.body()
-                    atualizarInterface(listaProduto)
+                    atualizarInterface2(listaProduto)
 
 
                 } else {
 
-                    Snackbar.make(binding.constraintLayoutCategorias,
+                    Snackbar.make(binding.scrollView5,
                         "Não foi possivel carregar os pokemons",
                         Snackbar.LENGTH_LONG).show()
 
@@ -127,7 +142,7 @@ class categoriasFragment : Fragment() {
 
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
                 progressBarOff()
-                Snackbar.make(binding.constraintLayoutCategorias,
+                Snackbar.make(binding.scrollView5,
                     "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
 
@@ -137,27 +152,28 @@ class categoriasFragment : Fragment() {
 
 
         }
-        fun conectar() {
-            API(this.requireContext()).pokemonAberto.pesquisarCategoria("${clicandoFuncao}").enqueue(callback)
 
-        }
-        conectar()
+        API(this.requireContext()).pokemonAberto.pesquisarCategoria("${nomeCategoria}").enqueue(callback)
+
         progressBarOn()
     }
 
-    fun atualizarInterface(lista: List<Produto>?) {
-        binding.containerCategorias.removeAllViews()
+    fun atualizarInterface2(lista: List<Produto>?) {
+        binding.gridLayoutCategoria.removeAllViews()
         lista?.forEach {
             val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
-            val idAqui = it.id
+            var idPokemon = it.id
             pokemonBinding.nomePokemon.text = it.nome
             pokemonBinding.pontosPokemon.text = it.preco
+
+
 
             pokemonBinding.linearLayoutCard.setOnClickListener {
 
 
+
                 val intent = Intent(context, ProductViewActivity::class.java)
-                intent.putExtra("id",idAqui)
+                intent.putExtra("id",idPokemon)
                 startActivity(intent)
 
             }
@@ -165,20 +181,25 @@ class categoriasFragment : Fragment() {
 
 
 
+
+
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
 
-            binding.containerCategorias.addView(pokemonBinding.root)
+            binding.gridLayoutCategoria.addView(pokemonBinding.root)
 
         }
 
     }
     fun progressBarOff() {
         binding.progressBarCat.visibility =  View.GONE
+        binding.gridLayoutCategoria.visibility = View.VISIBLE
+
 
     }
     fun progressBarOn() {
         binding.progressBarCat.visibility =  View.VISIBLE
+        binding.gridLayoutCategoria.visibility = View.INVISIBLE
 
     }
 

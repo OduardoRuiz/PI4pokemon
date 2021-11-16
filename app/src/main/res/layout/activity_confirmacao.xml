@@ -1,386 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshTodos"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/pokeBlueFundo">
 
-        <TextView
-            android:id="@+id/textView57"
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.BottomNavigation">
+
+
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <LinearLayout
+                android:id="@+id/containerEnderecoConfirmacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/scrollView4"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:scrollbarThumbHorizontal="@drawable/categoriasagua"
+            android:scrollbarThumbVertical="@drawable/categoriasinseto"
+            android:scrollbarTrackHorizontal="@drawable/categoriasdark"
+            app:layout_constraintBottom_toTopOf="@+id/buttonFinalizarPedido"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView4"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <LinearLayout
+                android:id="@+id/containerProdutosConfirmacao"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="156dp"
+            android:layout_height="123dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/animation"
+
+            android:indeterminateDuration="4500"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/buttonFinalizarPedido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="32dp"
-            android:text="Confirmação do Pedido"
-            android:textAlignment="center"
-            android:textSize="16sp"
+            android:layout_marginBottom="44dp"
+            android:text="Finalizar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
-        <MultiAutoCompleteTextView
-            android:id="@+id/multiAutoCompleteTextView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:clickable="false"
-            android:contextClickable="false"
-            android:linksClickable="false"
-            android:longClickable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView47"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/textView58"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView3"
-            app:srcCompat="@drawable/lugar" />
-
-        <TextView
-            android:id="@+id/textView61"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Endereço de entrega"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView47"
-            app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView3" />
-
-        <TextView
-            android:id="@+id/textView58"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Nome do usuário"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView47"
-            app:layout_constraintTop_toBottomOf="@+id/textView61" />
-
-        <TextView
-            android:id="@+id/textView59"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Av. Eng. Eusébio Stevaux, 823 - Santo Amaro"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView58" />
-
-        <TextView
-            android:id="@+id/textView60"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="São Paulo - SP"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView59" />
-
-        <TextView
-            android:id="@+id/textView62"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="04696-000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView60" />
-
-        <TextView
-            android:id="@+id/textView63"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="55 11 9999999"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView62" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:clickable="false"
-            android:contextClickable="false"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:linksClickable="false"
-            android:longClickable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView63" />
-
-        <TextView
-            android:id="@+id/textView64"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Resumo da compra"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView53"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
-
-        <ImageView
-            android:id="@+id/imageView53"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/textView64"
-            app:layout_constraintHorizontal_bias="0.043"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
-            app:srcCompat="@drawable/meucarrinho_icon" />
-
-        <ImageView
-            android:id="@+id/imageView54"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView53"
-            app:layout_constraintTop_toBottomOf="@+id/textView64"
-            app:srcCompat="@drawable/eevee" />
-
-        <TextView
-            android:id="@+id/textView65"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:text="Eevee  LV 10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView54"
-            app:layout_constraintTop_toBottomOf="@+id/textView64" />
-
-        <TextView
-            android:id="@+id/textView66"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="100 Pontos"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView54"
-            app:layout_constraintTop_toBottomOf="@+id/textView65" />
-
-        <TextView
-            android:id="@+id/textView67"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="-"
-            app:layout_constraintEnd_toStartOf="@+id/textView68"
-            app:layout_constraintStart_toEndOf="@+id/imageView54"
-            app:layout_constraintTop_toBottomOf="@+id/textView66" />
-
-        <TextView
-            android:id="@+id/textView68"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="2"
-            app:layout_constraintEnd_toStartOf="@+id/textView69"
-            app:layout_constraintStart_toEndOf="@+id/textView67"
-            app:layout_constraintTop_toBottomOf="@+id/textView66" />
-
-        <TextView
-            android:id="@+id/textView69"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="+"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.07"
-            app:layout_constraintStart_toEndOf="@+id/textView68"
-            app:layout_constraintTop_toBottomOf="@+id/textView66" />
-
-        <ImageView
-            android:id="@+id/imageView52"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/textView70"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2"
-            app:srcCompat="@drawable/direcao" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:clickable="false"
-            android:contextClickable="false"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:linksClickable="false"
-            android:longClickable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView54" />
-
-        <TextView
-            android:id="@+id/textView70"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Opção de envio"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView52"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
-
-        <TextView
-            android:id="@+id/textView71"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Frete grátis"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView52"
-            app:layout_constraintTop_toBottomOf="@+id/textView70" />
-
-        <ImageView
-            android:id="@+id/imageView55"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3"
-            app:srcCompat="@drawable/coin" />
-
-        <TextView
-            android:id="@+id/textView72"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Av. Eng. Eusébio Stevaux, 823 - Santo Amaro"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView71" />
-
-        <TextView
-            android:id="@+id/textView73"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="São Paulo - SP"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView72" />
-
-        <TextView
-            android:id="@+id/textView74"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="04696-000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView73" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:clickable="false"
-            android:contextClickable="false"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:linksClickable="false"
-            android:longClickable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView74" />
-
-        <TextView
-            android:id="@+id/textView75"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="Valor Total"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/button13"
-            app:layout_constraintStart_toEndOf="@+id/imageView55"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
-
-        <TextView
-            android:id="@+id/textView76"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="200 Pontos"
-            app:layout_constraintEnd_toStartOf="@+id/button13"
-            app:layout_constraintStart_toEndOf="@+id/imageView55"
-            app:layout_constraintTop_toBottomOf="@+id/textView75" />
-
-        <Button
-            android:id="@+id/button13"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/pokeYellow"
-            android:text="Concluir Pedido"
-            android:textColor="#504F4F"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView75"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
