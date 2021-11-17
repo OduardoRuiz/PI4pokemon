@@ -96,6 +96,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="52dp"
+        android:background="@drawable/roundedbutton"
         android:backgroundTint="@color/pokeYellow"
         android:text="Cadastrar"
         android:textColor="@color/black"
