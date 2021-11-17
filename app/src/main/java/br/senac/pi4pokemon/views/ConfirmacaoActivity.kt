@@ -1,5 +1,6 @@
 package br.senac.pi4pokemon.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,6 +20,7 @@ import retrofit2.Response
 
 class ConfirmacaoActivity : AppCompatActivity() {
     lateinit var binding: ActivityConfirmacaoBinding
+    var total: Double = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityConfirmacaoBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -72,9 +74,13 @@ class ConfirmacaoActivity : AppCompatActivity() {
 
         binding.buttonFinalizarPedido.setOnClickListener {
             finalizarPedidido()
+            atualizarPokemons()
+            val intent = Intent(this, PedidoConfirmadoActivity::class.java)
+            startActivity(intent)
         }
 
         progressBarOn()
+
 
 
 
@@ -88,11 +94,7 @@ class ConfirmacaoActivity : AppCompatActivity() {
             pokemonBinding.nomePokemon.text = it.nome
            pokemonBinding.pontosPokemon.text = it.preco
 
-
-
-
-
-
+                total += it.preco.toDouble()
 
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}")
@@ -100,7 +102,10 @@ class ConfirmacaoActivity : AppCompatActivity() {
             binding.containerProdutosConfirmacao.addView(pokemonBinding.root)
 
         }
+        // adiciona valor total
+        binding.textViewValorTotal.text = total.toString()
 
+        total = 0.0
     }
 
     fun progressBarOff() {

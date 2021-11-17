@@ -2,13 +2,13 @@ package br.senac.pi4pokemon.model
 
 data class Carrinho(
     val preco: String,
-    val updatedAt: String,
-    val userId: Int,
+    val updated_at: String,
+    val user_id: Int,
     val imagem: String,
-    val createdAt: String,
+    val created_at: String,
     val nome: String,
     val id: Int,
-    val produtoId: Int,
+    val produto_id: Int,
     val quantidade: Int,
     val descricao: String
 

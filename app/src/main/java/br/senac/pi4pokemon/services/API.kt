@@ -78,6 +78,10 @@ class API(private val context: Context) {
         get() {
             return retrofitAberto.create(CategoriaService::class.java)
         }
+    val pedido: PedidoService
+        get() {
+            return retrofitAberto.create(PedidoService::class.java)
+        }
 
 
 }

@@ -29,12 +29,9 @@ class ProductViewActivity : AppCompatActivity() {
         binding = ActivityProductViewBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
         atualizarPokemons()
 
-
     }
-
 
     fun atualizarPokemons() {
 
@@ -58,35 +55,25 @@ class ProductViewActivity : AppCompatActivity() {
                     Log.e("ERROR", response.errorBody().toString())
 
                 }
-
             }
-
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
                 progressBarOff()
                 Snackbar.make(binding.textView9, "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
 
                 Log.e("ERROR", "Falha ao conectar ao serviço", t)
-
             }
-
 
         }
         //id default como 2 para a product view activity nao ficar em branco ao ser rodada direto
         var idPokemon = intent.getIntExtra("id", 2)
         API(this).pokemonAberto.pesquisarProdutos(idPokemon).enqueue(callback)
+
         binding.buttonAddCarrinho.setOnClickListener {
-
             addPokemon(idPokemon)
-
         }
 
-
         progressBarOn()
-
-
-
-
 
     }
 
@@ -100,16 +87,11 @@ class ProductViewActivity : AppCompatActivity() {
             pokemonBinding.textDescricaoProdutoView.text = it.descricao
 
 
-
-
-
-
             if (it.categoria_id == 3) {
                 pokemonBinding.buttonTipoProductView.text = "Funciona"
                 pokemonBinding.buttonTipoProductView.setBackgroundColor(getColor(R.color.pokeYellow))
 
             }
-
 
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}")
@@ -119,7 +101,6 @@ class ProductViewActivity : AppCompatActivity() {
         }
 
     }
-
     fun progressBarOff() {
         binding.progressBarProd.visibility = View.GONE
         binding.imagePokemonProductView.visibility = View.VISIBLE
@@ -131,8 +112,7 @@ class ProductViewActivity : AppCompatActivity() {
         binding.imagePokemonProductView.visibility = View.INVISIBLE
     }
 
-
-    fun addPokemon(idpokemon: Int) {
+    fun addPokemon(idPokemon: Int) {
 
 
         val callbackAdd = object : Callback<Void> {
@@ -141,43 +121,29 @@ class ProductViewActivity : AppCompatActivity() {
 
                 if (response.isSuccessful) {
                     progressBarOff()
-                    // val listaProduto = response.body()
-
-                    //   atualizarUI(listaProduto)
-
 
                 } else {
 
-                    Snackbar.make(binding.imagePokemonProductView, "Não foi possivel carregar os pokemons",
+                    Snackbar.make(binding.imagePokemonProductView,
+                        "Não foi possivel carregar os pokemons",
                         Snackbar.LENGTH_LONG).show()
 
                     Log.e("ERROR", response.errorBody().toString())
 
                 }
-
             }
-
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 progressBarOff()
-                Snackbar.make(binding.imagePokemonProductView, "Não foi possivel conectar ao servidor",
+                Snackbar.make(binding.imagePokemonProductView,
+                    "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
 
                 Log.e("ERROR", "Falha ao conectar ao serviço", t)
-
             }
-
-
         }
-        //id default como 2 para a product view activity nao ficar em branco ao ser rodada direto
-        // var idPokemon = intent.getIntExtra("id", 2)
-        API(this).carrinho.addProdutoCarrinho(idpokemon).enqueue(callbackAdd)
+
+        API(this).carrinho.addProdutoCarrinho(idPokemon).enqueue(callbackAdd)
         progressBarOn()
 
-
-
-
-
     }
-
-
 }

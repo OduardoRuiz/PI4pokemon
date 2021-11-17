@@ -34,48 +34,46 @@ class meuCarrinhoFragment : Fragment() {
         // Inflate the layout for this fragment
 
 
-
         return binding.root
     }
 
     fun atualizarPokemons() {
 
-      val callback = object : Callback<List<Carrinho>> {
-          override fun onResponse(call: Call<List<Carrinho>>, response: Response<List<Carrinho>>) {
-              progressBarOff()
-              if (response.isSuccessful) {
-                val listaCarrinho = response.body()
+        val callback = object : Callback<List<Carrinho>> {
+            override fun onResponse(
+                call: Call<List<Carrinho>>,
+                response: Response<List<Carrinho>>,
+            ) {
+                progressBarOff()
+                if (response.isSuccessful) {
+                    val listaCarrinho = response.body()
 
-                  atualizarCarrinho(listaCarrinho)
-              } else {
-                  Snackbar.make(binding.constraintLayoutMeuCarrinho,
-                      "Não foi possivel carregar os pokemons",
-                      Snackbar.LENGTH_LONG).show()
+                    atualizarCarrinho(listaCarrinho)
+                } else {
+                    Snackbar.make(binding.constraintLayoutMeuCarrinho,
+                        "Não foi possivel carregar os pokemons",
+                        Snackbar.LENGTH_LONG).show()
 
-                  Log.e("ERROR", response.errorBody().toString())
+                    Log.e("ERROR", response.errorBody().toString())
 
-              }
-          }
+                }
+            }
 
-          override fun onFailure(call: Call<List<Carrinho>>, t: Throwable) {
-              progressBarOff()
-              Snackbar.make(binding.constraintLayoutMeuCarrinho,
-                  "Não foi possivel conectar ao servidor",
-                  Snackbar.LENGTH_LONG).show()
+            override fun onFailure(call: Call<List<Carrinho>>, t: Throwable) {
+                progressBarOff()
+                Snackbar.make(binding.constraintLayoutMeuCarrinho,
+                    "Não foi possivel conectar ao servidor",
+                    Snackbar.LENGTH_LONG).show()
 
-              Log.e("ERROR", "Falha ao conectar ao serviço", t)
-          }
+                Log.e("ERROR", "Falha ao conectar ao serviço", t)
+            }
 
 
-      }
+        }
         API(this.requireContext()).carrinho.mostraCarrinho().enqueue(callback)
 
-binding.buttonAdd.setOnClickListener {
-    addPokemon()
-}
 
         progressBarOn()
-
 
 
     }
@@ -85,20 +83,29 @@ binding.buttonAdd.setOnClickListener {
         carrinhoAdd?.forEach {
             val pokemonBinding = CardPokemoncarrinhoBinding.inflate(layoutInflater)
 
-          val idAqui = it.produtoId
 
-            val idPokemon =  it.produtoId
+            val idPokemon = it.produto_id
             pokemonBinding.pontosPokemonCarrinho.text = it.preco
             pokemonBinding.nomePokemonCarrinho.text = it.nome
+            pokemonBinding.textViewQuantidade.text = it.quantidade.toString()
 
             binding.buttonFinalizarCompra.setOnClickListener {
                 val intent = Intent(context, ConfirmacaoActivity::class.java)
-                intent.putExtra("id",idAqui)
+                intent.putExtra("id", idPokemon)
                 startActivity(intent)
 
             }
-            pokemonBinding.cardImagemCarrinho.setOnClickListener {
+            pokemonBinding.imageViewAdd.setOnClickListener {
+                addPokemon(idPokemon)
+                atualizarPokemons()
+            }
+            pokemonBinding.imageViewMenos.setOnClickListener {
+                removePokemon(idPokemon)
+                atualizarPokemons()
+            }
 
+
+            pokemonBinding.cardImagemCarrinho.setOnClickListener {
 
 
                 val intent = Intent(context, ProductViewActivity::class.java)
@@ -107,7 +114,8 @@ binding.buttonAdd.setOnClickListener {
 
             }
             Picasso.get()
-                .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemonCarrinho)
+                .load("http://10.0.2.2:8000/${it.imagem}")
+                .into(pokemonBinding.imagemPokemonCarrinho)
 
 
 
@@ -128,7 +136,7 @@ binding.buttonAdd.setOnClickListener {
 
     }
 
-    fun addPokemon() {
+    fun addPokemon(add: Int) {
 
 
         val callbackAdd = object : Callback<Void> {
@@ -137,9 +145,7 @@ binding.buttonAdd.setOnClickListener {
 
                 if (response.isSuccessful) {
                     progressBarOff()
-                    // val listaProduto = response.body()
-
-                    //   atualizarUI(listaProduto)
+                  //  atualizarCarrinhoBotao(response.body())
 
 
                 } else {
@@ -164,17 +170,68 @@ binding.buttonAdd.setOnClickListener {
 
 
         }
-        //id default como 2 para a product view activity nao ficar em branco ao ser rodada direto
-       // var idPokemon = intent.getIntExtra("id", 2)
-        API(this.requireContext()).carrinho.addProdutoCarrinho(10).enqueue(callbackAdd)
+
+        API(this.requireContext()).carrinho.addProdutoCarrinho(add).enqueue(callbackAdd)
         progressBarOn()
-
-
-
 
 
     }
 
-}
+    fun removePokemon(remove: Int) {
+
+
+        val callbackAdd = object : Callback<Void> {
+
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+
+                if (response.isSuccessful) {
+                    progressBarOff()
+
+             //       atualizarCarrinhoBotao(response.body())
+
+
+                } else {
+
+                    Snackbar.make(binding.scrollView2, "Não foi possivel carregar os pokemons",
+                        Snackbar.LENGTH_LONG).show()
+
+                    Log.e("ERROR", response.errorBody().toString())
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                progressBarOff()
+                Snackbar.make(binding.scrollView2, "Não foi possivel conectar ao servidor",
+                    Snackbar.LENGTH_LONG).show()
+
+                Log.e("ERROR", "Falha ao conectar ao serviço", t)
+
+            }
+
+
+        }
+
+        API(this.requireContext()).carrinho.removeProdutoCarrinho(remove).enqueue(callbackAdd)
+        progressBarOn()
+
+
+    }
+
+   // fun atualizarCarrinhoBotao(body: Void?) {
+     //   binding.containerCarrinho.removeAllViews()
+
+
+
+
+     //  binding.containerCarrinho.addView(meuCarrinhoFragment)
+
+    }
+
+
+
+
+
 
 

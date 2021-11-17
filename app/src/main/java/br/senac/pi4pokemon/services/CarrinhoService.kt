@@ -21,6 +21,10 @@ interface CarrinhoService {
     @POST("/api/carrinho/add/{id}")
     fun addProdutoCarrinho(@Path("id")id: Int): Call<Void>
 
+    //Remove produto carrinho
+    @POST("/api/carrinho/remove/{id}")
+    fun removeProdutoCarrinho(@Path("id")id: Int): Call<Void>
+
 
     //Finalizar pedido
     @POST(" /api/pedidos/add/")
