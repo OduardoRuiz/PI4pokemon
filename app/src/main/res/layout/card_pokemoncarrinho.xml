@@ -57,10 +57,10 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/imageViewAdd"
-                        android:layout_width="101dp"
-                        android:layout_height="match_parent"
-                        android:src="@android:drawable/ic_input_add" />
+                        android:id="@+id/imageView18"
+                        android:layout_width="42dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/iconmais" />
 
                     <TextView
                         android:id="@+id/textViewQuantidade"
@@ -69,10 +69,10 @@
                         android:text="TextView" />
 
                     <ImageView
-                        android:id="@+id/imageViewMenos"
-                        android:layout_width="30dp"
+                        android:id="@+id/imageView19"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@android:drawable/presence_busy" />
+                        android:src="@drawable/iconmenos" />
 
                 </TableRow>
 
@@ -95,6 +95,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pontos" />
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/coin" />
 
                 </TableRow>
 
