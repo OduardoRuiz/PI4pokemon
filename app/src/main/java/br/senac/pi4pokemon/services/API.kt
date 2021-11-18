@@ -82,6 +82,13 @@ class API(private val context: Context) {
         get() {
             return retrofitAberto.create(PedidoService::class.java)
         }
-
+    val endereco: EnderecoService
+        get() {
+            return retrofitAberto.create(EnderecoService::class.java)
+        }
+    val pedidoItens: PedidoItemService
+        get() {
+            return retrofitAberto.create(PedidoItemService::class.java)
+        }
 
 }

@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import br.senac.pi4pokemon.databinding.ActivityLoginBinding
 import br.senac.pi4pokemon.model.Token
+import br.senac.pi4pokemon.model.User
 import br.senac.pi4pokemon.services.API
 import br.senac.pi4pokemon.services.ARQUIVO_LOGIN
 import retrofit2.Call
@@ -34,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
                         editor.putString("usuario", usuario)
                         editor.putString("senha", senha)
+                        editor.putString("token", token.token)
 
                         editor.apply()
 
@@ -61,7 +63,8 @@ class LoginActivity : AppCompatActivity() {
 
             }
 
-            API(this).login.fazerLogin(usuario, senha).enqueue(callback)
+            val user =  User(email = "duardo@duardo.com", password = "123456789")
+            API(this).login.fazerLogin(user).enqueue(callback)
         }
     }
 }

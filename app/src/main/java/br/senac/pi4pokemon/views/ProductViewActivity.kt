@@ -1,17 +1,13 @@
 package br.senac.pi4pokemon.views
 
-import android.content.Context
-import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityProductViewBinding
-import br.senac.pi4pokemon.fragments.inicioFragment
-import br.senac.pi4pokemon.fragments.lendariosFragment
-import br.senac.pi4pokemon.fragments.meuCarrinhoFragment
-import br.senac.pi4pokemon.model.Carrinho
+
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
 import com.google.android.material.snackbar.Snackbar
@@ -26,8 +22,8 @@ class ProductViewActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityProductViewBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        binding = ActivityProductViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         atualizarPokemons()
 
@@ -71,6 +67,11 @@ class ProductViewActivity : AppCompatActivity() {
 
         binding.buttonAddCarrinho.setOnClickListener {
             addPokemon(idPokemon)
+            mostrarToast(this, "Produto adicionado ao carrinho")
+        }
+        binding.buttonComprarAgora.setOnClickListener {
+            addPokemon(idPokemon)
+            mostrarToast(this, "Produto adicionado ao carrinho")
         }
 
         progressBarOn()
@@ -78,25 +79,24 @@ class ProductViewActivity : AppCompatActivity() {
     }
 
     fun atualizarUI(lista: List<Produto>?) {
-        binding.constraintLayoutProductView.removeAllViews()
-        lista?.forEach {
+        lista?.get(0)?.let {
             val idAquiFrag = it.id
-            val pokemonBinding = ActivityProductViewBinding.inflate(layoutInflater)
-            pokemonBinding.nomePokemonProductView.text = it.nome
-            pokemonBinding.textPontosPokemonProductView.text = it.preco
-            pokemonBinding.textDescricaoProdutoView.text = it.descricao
+
+            binding.nomePokemonProductView.text = it.nome
+            binding.textPontosPokemonProductView.text = it.preco
+            binding.textDescricaoProdutoView.text = it.descricao
 
 
             if (it.categoria_id == 3) {
-                pokemonBinding.buttonTipoProductView.text = "Funciona"
-                pokemonBinding.buttonTipoProductView.setBackgroundColor(getColor(R.color.pokeYellow))
+                binding.buttonTipoProductView.text = "Funciona"
+                binding.buttonTipoProductView.setBackgroundColor(getColor(R.color.pokeYellow))
 
             }
 
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}")
-                .into(pokemonBinding.imagePokemonProductView)
-            binding.constraintLayoutProductView.addView(pokemonBinding.root)
+                .into(binding.imagePokemonProductView)
+
 
         }
 

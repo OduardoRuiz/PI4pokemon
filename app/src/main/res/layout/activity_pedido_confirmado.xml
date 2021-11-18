@@ -159,7 +159,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="Em brave será entregue no endereço abaixo"
+            android:text="Em breve será entregue no endereço abaixo"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -167,40 +167,38 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine5" />
 
         <TextView
-            android:id="@+id/textView46"
-            android:layout_width="0dp"
+            android:id="@+id/cepView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Nome do usuário"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="8dp"
+            android:text="CEP : "
+            app:layout_constraintBottom_toTopOf="@+id/textViewLogradouroConfirmacao"
+            app:layout_constraintEnd_toStartOf="@+id/textViewCEP"
             app:layout_constraintStart_toEndOf="@+id/imageView56"
             app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
         <TextView
-            android:id="@+id/textView47"
+            android:id="@+id/textViewLogradouroConfirmacao"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="Av. Eng. Eusébio Stevaux, 823 - Santo Amaro"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Endereco"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView46" />
+            app:layout_constraintTop_toBottomOf="@+id/cepView" />
 
         <TextView
-            android:id="@+id/textView48"
+            android:id="@+id/textViewCidade"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="São Paulo - SP"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="São Paulo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView47" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewLogradouroConfirmacao" />
 
         <TextView
             android:id="@+id/textViewPedidoId"
@@ -215,5 +213,66 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView44"
             app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+        <TextView
+            android:id="@+id/textViewEstadoConfirmacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginBottom="1dp"
+            android:text="SP"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewCidade" />
+
+        <TextView
+            android:id="@+id/textViewNumeroConfirmacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="6dp"
+            android:text="numero"
+            app:layout_constraintBottom_toTopOf="@+id/textViewEstadoConfirmacao"
+            app:layout_constraintStart_toEndOf="@+id/textViewLogradouroConfirmacao"
+            app:layout_constraintTop_toBottomOf="@+id/cepView" />
+
+        <TextView
+            android:id="@+id/textViewComplementoConfirmacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="26dp"
+            android:text="Complemento"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumeroConfirmacao"
+            app:layout_constraintTop_toBottomOf="@+id/cepView" />
+
+        <TextView
+            android:id="@+id/textViewBairroConfirmacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="49dp"
+            android:layout_marginBottom="27dp"
+            android:text="Bairro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewComplementoConfirmacao"
+            app:layout_constraintTop_toBottomOf="@+id/cepView" />
+
+        <TextView
+            android:id="@+id/textViewCEP"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="166dp"
+            android:layout_marginBottom="11dp"
+            android:text="CEP"
+            app:layout_constraintBottom_toTopOf="@+id/textViewComplementoConfirmacao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cepView"
+            app:layout_constraintTop_toBottomOf="@+id/textView45" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

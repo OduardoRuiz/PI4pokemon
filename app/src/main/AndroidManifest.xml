@@ -13,6 +13,13 @@
         android:theme="@style/Theme.PI4pokemon"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".views.ProdutosDoPedidoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.MeusPedidosActivity"
+            android:exported="true"
+            android:parentActivityName=".views.BottomNavigation" />
+        <activity
             android:name=".views.PedidoConfirmadoActivity"
             android:exported="true">
             <intent-filter>
