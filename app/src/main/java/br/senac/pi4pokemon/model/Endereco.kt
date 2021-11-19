@@ -1,16 +1,17 @@
 package br.senac.pi4pokemon.model
 
 data class Endereco(
-	val estado: String,
-	val cidade: String,
-	val complemento: String,
-	val updated_at: String,
-	val numero: Int,
-	val user_id: Int,
-	val bairro: String,
-	val created_at: String,
-	val id: Int,
-	val contato: Int,
-	val cep: String,
-	val rua: String
+	val estado: String? = null,
+	val cidade: String? = null,
+	val complemento: String? = null,
+	val updated_at: String? = null,
+	val numero: Int? = null,
+	val user_id: Int? = null,
+	val bairro: String? = null,
+	val created_at: String? = null,
+	val id: Int? = null,
+	val contato: Int? = null,
+	val cep: String? = null,
+	val rua: String? = null
 )
+

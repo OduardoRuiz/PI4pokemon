@@ -1,6 +1,7 @@
 package br.senac.pi4pokemon.views
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +22,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.buttonRegistrar.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.buttonLogin.setOnClickListener {
             val usuario = binding.editLogin.text.toString()
             val senha = binding.editSenha.text.toString()
@@ -36,8 +42,10 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("usuario", usuario)
                         editor.putString("senha", senha)
                         editor.putString("token", token.token)
-
                         editor.apply()
+                        val intent = Intent(this@LoginActivity, BottomNavigation::class.java)
+
+                        startActivity(intent)
 
                         Toast.makeText(this@LoginActivity, "Login Efetuado", Toast.LENGTH_LONG).show()
 

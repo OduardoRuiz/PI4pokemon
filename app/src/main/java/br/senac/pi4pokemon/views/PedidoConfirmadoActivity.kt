@@ -1,18 +1,13 @@
 package br.senac.pi4pokemon.views
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityPedidoConfirmadoBinding
-import br.senac.pi4pokemon.databinding.CardPokemonsBinding
-import br.senac.pi4pokemon.model.Carrinho
 import br.senac.pi4pokemon.model.Endereco
 import br.senac.pi4pokemon.model.Pedidos
 import br.senac.pi4pokemon.services.API
 import com.google.android.material.snackbar.Snackbar
-import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -128,7 +123,7 @@ class PedidoConfirmadoActivity : AppCompatActivity() {
             }
 
         }
-        API(this).endereco.listraEndereco().enqueue(callback)
+        API(this).endereco.listaEndereco().enqueue(callback)
 
     }
 

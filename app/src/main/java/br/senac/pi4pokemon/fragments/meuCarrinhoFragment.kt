@@ -15,6 +15,7 @@ import br.senac.pi4pokemon.model.Carrinho
 import br.senac.pi4pokemon.services.API
 import br.senac.pi4pokemon.views.ConfirmacaoActivity
 import br.senac.pi4pokemon.views.ProductViewActivity
+import br.senac.pi4pokemon.views.mostrarSnackBar
 
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
@@ -50,9 +51,8 @@ class meuCarrinhoFragment : Fragment() {
 
                     atualizarCarrinho(listaCarrinho)
                 } else {
-                    Snackbar.make(binding.constraintLayoutMeuCarrinho,
-                        "Não foi possivel carregar os pokemons",
-                        Snackbar.LENGTH_LONG).show()
+                    mostrarSnackBar(binding.constraintLayoutMeuCarrinho, "Não foi possivel carregar " +
+                            ", faça o login na Aba Minha conta")
 
                     Log.e("ERROR", response.errorBody().toString())
 
@@ -61,10 +61,8 @@ class meuCarrinhoFragment : Fragment() {
 
             override fun onFailure(call: Call<List<Carrinho>>, t: Throwable) {
                 progressBarOff()
-                Snackbar.make(binding.constraintLayoutMeuCarrinho,
-                    "Não foi possivel conectar ao servidor",
-                    Snackbar.LENGTH_LONG).show()
-
+                mostrarSnackBar(binding.constraintLayoutMeuCarrinho, "Não foi possivel carregar" +
+                        ", faça o login na Aba Minha conta" )
                 Log.e("ERROR", "Falha ao conectar ao serviço", t)
             }
 
@@ -150,9 +148,7 @@ class meuCarrinhoFragment : Fragment() {
 
                 } else {
 
-                    Snackbar.make(binding.scrollView2, "Não foi possivel carregar os pokemons",
-                        Snackbar.LENGTH_LONG).show()
-
+                    mostrarSnackBar(binding.scrollView2, "Não foi possivel carregar pokemons")
                     Log.e("ERROR", response.errorBody().toString())
 
                 }
@@ -161,9 +157,8 @@ class meuCarrinhoFragment : Fragment() {
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 progressBarOff()
-                Snackbar.make(binding.scrollView2, "Não foi possivel conectar ao servidor",
-                    Snackbar.LENGTH_LONG).show()
 
+                mostrarSnackBar(binding.scrollView2, "Não foi possivel carregar pokemons")
                 Log.e("ERROR", "Falha ao conectar ao serviço", t)
 
             }

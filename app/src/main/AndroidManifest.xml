@@ -13,6 +13,12 @@
         android:theme="@style/Theme.PI4pokemon"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".views.EditaEnderecoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.MeuPerfilActivity"
+            android:exported="true" />
+        <activity
             android:name=".views.ProdutosDoPedidoActivity"
             android:exported="true" />
         <activity

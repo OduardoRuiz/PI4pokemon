@@ -56,22 +56,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+
                     <ImageView
-                        android:id="@+id/imageView18"
-                        android:layout_width="42dp"
-                        android:layout_height="20dp"
+                        android:id="@+id/imageViewAdd"
+                        android:layout_width="28dp"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/iconmais" />
 
                     <TextView
                         android:id="@+id/textViewQuantidade"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:text="0"
+                        android:textAlignment="center" />
 
                     <ImageView
-                        android:id="@+id/imageView19"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:id="@+id/imageViewMenos"
+                        android:layout_width="33dp"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/iconmenos" />
 
                 </TableRow>

@@ -65,13 +65,13 @@ class API(private val context: Context) {
     get() {
         return retrofitAberto.create(LoginService::class.java)
     }
-    val cliente: ClienteService
+    val cliente: UserService
     get() {
-        return retrofitSeguro.create(ClienteService::class.java)
+        return retrofitSeguro.create(UserService::class.java)
     }
     val carrinho: CarrinhoService
     get() {
-        return retrofitAberto.create(CarrinhoService::class.java)
+        return retrofitSeguro.create(CarrinhoService::class.java)
     }
 
     val categoria: CategoriaService
@@ -80,15 +80,23 @@ class API(private val context: Context) {
         }
     val pedido: PedidoService
         get() {
-            return retrofitAberto.create(PedidoService::class.java)
+            return retrofitSeguro.create(PedidoService::class.java)
         }
     val endereco: EnderecoService
         get() {
-            return retrofitAberto.create(EnderecoService::class.java)
+            return retrofitSeguro.create(EnderecoService::class.java)
         }
     val pedidoItens: PedidoItemService
         get() {
-            return retrofitAberto.create(PedidoItemService::class.java)
+            return retrofitSeguro.create(PedidoItemService::class.java)
+        }
+    val usuario: UserService
+        get() {
+            return retrofitSeguro.create(UserService::class.java)
+        }
+    val logoff: UserService
+        get() {
+            return retrofitSeguro.create(UserService::class.java)
         }
 
 }

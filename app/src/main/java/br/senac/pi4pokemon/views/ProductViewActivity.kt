@@ -1,6 +1,8 @@
 package br.senac.pi4pokemon.views
 
 
+import android.content.Context
+import android.media.session.MediaSession
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +11,14 @@ import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityProductViewBinding
 
 import br.senac.pi4pokemon.model.Produto
+import br.senac.pi4pokemon.model.Token
 import br.senac.pi4pokemon.services.API
+import br.senac.pi4pokemon.services.ARQUIVO_LOGIN
+import br.senac.pi4pokemon.services.AutenticadorToken
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import okhttp3.Request
+import okhttp3.internal.http2.Header
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +34,11 @@ class ProductViewActivity : AppCompatActivity() {
         setContentView(binding.root)
         atualizarPokemons()
 
+
+
+
     }
+
 
     fun atualizarPokemons() {
 
@@ -64,14 +75,24 @@ class ProductViewActivity : AppCompatActivity() {
         //id default como 2 para a product view activity nao ficar em branco ao ser rodada direto
         var idPokemon = intent.getIntExtra("id", 2)
         API(this).pokemonAberto.pesquisarProdutos(idPokemon).enqueue(callback)
+        val prefs = this.getSharedPreferences(ARQUIVO_LOGIN, Context.MODE_PRIVATE)
+        val token = prefs.getString("token", "") as String
 
         binding.buttonAddCarrinho.setOnClickListener {
             addPokemon(idPokemon)
-            mostrarToast(this, "Produto adicionado ao carrinho")
+            if (token == "") {
+                mostrarToast(this, "Faça o login antes de adicionar ao carrinho")
+            }else {
+                mostrarToast(this, "Produto adicionado ao carrinho")
+            }
         }
         binding.buttonComprarAgora.setOnClickListener {
             addPokemon(idPokemon)
-            mostrarToast(this, "Produto adicionado ao carrinho")
+            if (token == "") {
+                mostrarToast(this, "Faça o login antes de adicionar ao carrinho")
+            }else {
+                mostrarToast(this, "Produto adicionado ao carrinho")
+            }
         }
 
         progressBarOn()
@@ -124,19 +145,14 @@ class ProductViewActivity : AppCompatActivity() {
 
                 } else {
 
-                    Snackbar.make(binding.imagePokemonProductView,
-                        "Não foi possivel carregar os pokemons",
-                        Snackbar.LENGTH_LONG).show()
-
+                    mostrarSnackBar(binding.imagePokemonProductView, "Não foi possivel carregar pokemons")
                     Log.e("ERROR", response.errorBody().toString())
 
                 }
             }
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 progressBarOff()
-                Snackbar.make(binding.imagePokemonProductView,
-                    "Não foi possivel conectar ao servidor",
-                    Snackbar.LENGTH_LONG).show()
+                mostrarSnackBar(binding.imagePokemonProductView, "Não foi possivel carregar pokemons")
 
                 Log.e("ERROR", "Falha ao conectar ao serviço", t)
             }
