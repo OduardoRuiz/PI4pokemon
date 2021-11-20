@@ -29,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="Nome pokemon"
+                android:textAlignment="center"
                 android:textSize="20sp" />
 
             <androidx.cardview.widget.CardView
@@ -37,7 +38,7 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 app:cardBackgroundColor="#00FFFFFF"
-                app:cardCornerRadius="5dp">
+                app:cardCornerRadius="15dp">
 
                 <ImageView
                     android:id="@+id/imagemPokemonCarrinho"
@@ -66,7 +67,9 @@
                     <ImageView
                         android:id="@+id/imageViewAdd"
                         android:layout_width="28dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
                         android:src="@drawable/iconmais" />
 
                     <TextView
@@ -80,8 +83,10 @@
 
                     <ImageView
                         android:id="@+id/imageViewMenos"
-                        android:layout_width="33dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="35dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
                         android:src="@drawable/iconmenos" />
 
                 </TableRow>
@@ -97,14 +102,15 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="5dp"
                         android:text="1000 "
-                        android:textAlignment="center"
+                        android:textAlignment="textEnd"
                         android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/textView40"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pontos" />
+                        android:text="Pontos"
+                        android:textSize="16sp" />
 
                     <ImageView
                         android:id="@+id/imageView21"

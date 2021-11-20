@@ -13,6 +13,7 @@
         android:id="@+id/constraintLayoutConfirmacao"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/pokeBlueFundo"
         tools:context=".views.BottomNavigation">
 
 
@@ -60,63 +61,66 @@
             android:id="@+id/buttonFinalizarPedido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="44dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="24dp"
             android:backgroundTint="@color/pokeYellow"
-            android:text="Finalizar"
+            android:text="Concluir Pedido"
             android:textColor="#393737"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:cornerRadius="15dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="50dp"
             android:text="Valor Total :"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toStartOf="@+id/buttonFinalizarPedido"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewValorTotal"
+            app:layout_constraintStart_toEndOf="@+id/imageView12" />
 
         <TextView
             android:id="@+id/textViewValorTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
             android:text="100000000"
             android:textColor="@color/pokeBlueBotao"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonFinalizarPedido"
             app:layout_constraintEnd_toStartOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintStart_toEndOf="@+id/textView" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="48dp"
             android:text="Pontos"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView12"
-            app:layout_constraintStart_toEndOf="@+id/textViewValorTotal"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewValorTotal" />
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginBottom="19dp"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/coin" />
 
         <View
@@ -134,6 +138,7 @@
             android:id="@+id/view2"
             android:layout_width="fill_parent"
             android:layout_height="0.1dp"
+            android:layout_marginTop="8dp"
             android:background="@color/cardview_dark_background"
             android:focusable="false"
             app:layout_constraintBottom_toTopOf="@+id/textView"
@@ -141,18 +146,20 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="24dp"
             android:text="Confirme os dados do seu pedido"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
 
         <TextView
             android:id="@+id/textView20"

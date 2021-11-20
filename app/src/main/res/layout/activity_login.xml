@@ -11,10 +11,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_width="327dp"
+        android:layout_height="139dp"
         android:layout_marginStart="55dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="55dp"
+        android:foreground="@drawable/pokemon_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -62,6 +64,7 @@
         android:text="Entrar"
         android:textAllCaps="true"
         android:textColor="@color/black"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSenha" />
@@ -89,6 +92,7 @@
         android:text="Registre-se"
         android:textAllCaps="false"
         android:textColor="@color/black"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEsqueceuSenha" />

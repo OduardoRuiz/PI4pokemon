@@ -120,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:backgroundTint="@color/pokeBlueBotao"
+                android:backgroundTint="#EB3466AF"
                 android:padding="8dp"
                 android:text="Visualizar Produtos"
                 app:cornerRadius="15dp" />
