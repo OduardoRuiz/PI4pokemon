@@ -102,61 +102,69 @@ class EditaEnderecoActivity : AppCompatActivity() {
     fun botaoAtualizarEndereco() {
 
 
-       val cidade = binding.editTextCidade.text.toString()
-        val numero = binding.editTextNumero.text.toString().toInt()
+        val cidade = binding.editTextCidade.text.toString()
+        val numero = binding.editTextNumero.text.toString()
         val cep = binding.editTextCep.text.toString()
         val complemento = binding.editTextComplemento.text.toString()
-        val contato = binding.editTextPhone.text.toString().toInt()
+        val contato = binding.editTextPhone.text.toString()
         val estado = binding.editTextTextEstado.text.toString()
         val bairro = binding.editTextBairro.text.toString()
         val rua = binding.editTextLogradouro.text.toString()
 
-
-        val callback = object : Callback<Endereco> {
-
-
-            override fun onResponse(
-                call: Call<Endereco>,
-                response: Response<Endereco>,
-            ) {
-
-                if (response.isSuccessful) {
-
-                    mostrarToast(this@EditaEnderecoActivity, "Foi")
+        if (cidade.isNotEmpty() && cep.isNotEmpty() && complemento.isNotEmpty()
+            && estado.isNotEmpty() && bairro.isNotEmpty() && rua.isNotEmpty() &&
+            numero.isNotEmpty() && contato.isNotEmpty()
+        ) {
+            val callback = object : Callback<Endereco> {
 
 
-                } else {
+                override fun onResponse(
+                    call: Call<Endereco>,
+                    response: Response<Endereco>,
+                ) {
 
-                    mostrarToast(this@EditaEnderecoActivity, "Endereço atualizado")
+                    if (response.isSuccessful) {
 
-                    Log.e("ERROR", response.errorBody().toString())
+                        mostrarToast(this@EditaEnderecoActivity, "Foi")
+
+
+                    } else {
+
+                        mostrarToast(this@EditaEnderecoActivity, "Endereço atualizado")
+
+                        Log.e("ERROR", response.errorBody().toString())
+
+                    }
+
+                }
+
+                override fun onFailure(call: Call<Endereco>, t: Throwable) {
+
+                    mostrarSnackBar(binding.imageView7, "Endereço atualizado***")
+
+                    Log.e("ERROR", "Falha ao conectar ao serviço", t)
 
                 }
 
             }
 
-            override fun onFailure(call: Call<Endereco>, t: Throwable) {
+            val enderecoNovo = Endereco(
+                cidade = cidade,
+                numero = numero.toInt(),
+                cep = cep,
+                complemento = complemento,
+                contato = contato.toInt(),
+                estado = estado,
+                bairro = bairro,
+                rua = rua,
 
-                mostrarSnackBar(binding.imageView7, "Endereço atualizado***")
+                )
+            API(this).endereco.editaEndereco(endereco = enderecoNovo).enqueue(callback)
 
-                Log.e("ERROR", "Falha ao conectar ao serviço", t)
+        } else {
 
-            }
-
+            mostrarSnackBar(binding.buttonSalvar, "Preencha todos os campos")
         }
-
-        val enderecoNovo = Endereco(
-            cidade = cidade,
-            numero = numero,
-            cep = cep,
-            complemento = complemento,
-            contato = contato,
-            estado = estado,
-            bairro = bairro,
-            rua = rua,
-
-            )
-        API(this).endereco.editaEndereco(endereco = enderecoNovo).enqueue(callback)
 
     }
 

@@ -10,6 +10,7 @@ import br.senac.pi4pokemon.databinding.ActivityConfirmacaoBinding
 import br.senac.pi4pokemon.databinding.ActivityProductViewBinding
 import br.senac.pi4pokemon.databinding.CardPokemonsBinding
 import br.senac.pi4pokemon.model.Carrinho
+import br.senac.pi4pokemon.model.Endereco
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
 import com.google.android.material.snackbar.Snackbar
@@ -27,9 +28,11 @@ class ConfirmacaoActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.swipeRefreshTodos.setOnRefreshListener {
             atualizarPokemons()
+            atualizarEndereco()
 
         }
         atualizarPokemons()
+        atualizarEndereco()
     }
 
     fun atualizarPokemons() {
@@ -80,6 +83,7 @@ class ConfirmacaoActivity : AppCompatActivity() {
         }
 
         progressBarOn()
+
 
 
 
@@ -162,6 +166,78 @@ class ConfirmacaoActivity : AppCompatActivity() {
         progressBarOn()
 
 
+    }
+    fun atualizarEndereco() {
+
+
+        val callback = object : Callback<List<Endereco>> {
+
+            override fun onResponse(
+                call: Call<List<Endereco>>,
+                response: Response<List<Endereco>>
+            ) {
+
+                if (response.isSuccessful) {
+
+                    val listaProduto2 = response.body()
+
+                    atualizarUiEndereco(listaProduto2)
+
+
+                } else {
+
+                    Snackbar.make(binding.constraintLayoutConfirmacao,
+                        "Não foi possivel carregar os pokemons",
+                        Snackbar.LENGTH_LONG).show()
+
+                    Log.e("ERROR", response.errorBody().toString())
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<List<Endereco>>, t: Throwable) {
+
+                Snackbar.make(binding.constraintLayoutConfirmacao,
+                    "Não foi possivel conectar ao servidor",
+                    Snackbar.LENGTH_LONG).show()
+
+                Log.e("ERROR", "Falha ao conectar ao serviço", t)
+
+            }
+
+        }
+        API(this).endereco.listaEndereco().enqueue(callback)
+
+    }
+
+    fun atualizarUiEndereco(lista: List<Endereco>?) {
+
+        lista?.get(0)?.let {
+
+
+
+            binding.textViewRuaConfirmar.text = it.rua
+            binding.textViewNumeroConfirmacao2.text = it.numero.toString()
+            binding.textViewComplementoConfirmacao2.text  = it.complemento
+            binding.textViewCidadeConfirmar.text = it.cidade
+            binding.textViewEstadoConfirmar.text = it.estado
+            binding.textViewCepConfirmar.text = it.cep
+            binding.textViewContato.text = it.contato.toString()
+            if (binding.textViewComplementoConfirmacao2.text.isEmpty()){
+                binding.textViewComplementoConfirmacao2.visibility = View.INVISIBLE
+            }
+
+
+
+
+
+
+
+
+
+
+        }
     }
 
 }

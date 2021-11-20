@@ -214,6 +214,8 @@ class meuCarrinhoFragment : Fragment() {
 
     }
 
+
+
    // fun atualizarCarrinhoBotao(body: Void?) {
      //   binding.containerCarrinho.removeAllViews()
 

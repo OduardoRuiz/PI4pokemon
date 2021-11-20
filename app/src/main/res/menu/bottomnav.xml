@@ -24,7 +24,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/minhaconta"
-        android:icon="@drawable/perfil_icon"
+        android:icon="@drawable/minhaconta_icon"
         android:title="Minha Conta"
         app:showAsAction="always" />
 </menu>

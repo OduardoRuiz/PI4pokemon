@@ -1,16 +1,14 @@
 package br.senac.pi4pokemon.views
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityMeuPerfilBinding
-import br.senac.pi4pokemon.databinding.ActivityMeusPedidosBinding
-import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.model.User
 import br.senac.pi4pokemon.services.API
-import br.senac.pi4pokemon.services.ARQUIVO_LOGIN
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import retrofit2.Call
@@ -22,25 +20,25 @@ class MeuPerfilActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMeuPerfilBinding.inflate(layoutInflater)
-
-
-
         setContentView(binding.root)
-        atualizarPokemons()
+        atualizarPerfil()
 
     }
-    fun atualizarPokemons() {
+
+    fun atualizarPerfil() {
 
 
-        val callback = object : Callback<List<User>> {
+        val callback = object : Callback<User> {
 
-            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
 
                 if (response.isSuccessful) {
 
                     val listaProduto = response.body()
 
-                    atualizarUI(listaProduto)
+                    if (listaProduto != null) {
+                        atualizarUI(listaProduto)
+                    }
 
 
                 } else {
@@ -52,7 +50,8 @@ class MeuPerfilActivity : AppCompatActivity() {
 
                 }
             }
-            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
 
                 Snackbar.make(binding.imageViewUsuario, "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
@@ -65,15 +64,14 @@ class MeuPerfilActivity : AppCompatActivity() {
         API(this).usuario.listarPerfil().enqueue(callback)
 
 
-
     }
 
-    fun atualizarUI(lista: List<User>?) {
-        lista?.get(0)?.let {
+    fun atualizarUI(user : User) {
+        user.let {
 
 
             binding.textViewNomeUsuario.text = it.name
-           binding.textViewEmail.text = it.email
+            binding.textViewEmail.text = it.email
 
 
 
@@ -86,6 +84,11 @@ class MeuPerfilActivity : AppCompatActivity() {
         }
 
     }
+
+
+
+
+
 
 
 }

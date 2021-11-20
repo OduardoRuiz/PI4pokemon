@@ -74,7 +74,7 @@ class RegisterActivity : AppCompatActivity() {
 
             val novoUser = User(name = nome, password = senhaConfirmar, email = emailConfirmar)
             API(this).usuario.registrarUser(user = novoUser).enqueue(callback)
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, NewAdressActivity::class.java)
             startActivity(intent)
 
 

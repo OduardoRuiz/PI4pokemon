@@ -9,8 +9,8 @@ import retrofit2.http.POST
 
 interface UserService {
 
-    @GET("/api/user/")
-    fun listarPerfil(): Call<List<User>>
+    @GET("/api/user")
+    fun listarPerfil(): Call<User>
 
     @GET("/api/logoff/")
     fun logoff(): Call<Void>

@@ -17,6 +17,8 @@ interface EnderecoService {
         @POST("/api/update/endereco")
         fun editaEndereco(@Body endereco: Endereco): Call<Endereco>
 
+        @POST("/api/endereco/")
+        fun cadastraEndereco(@Body endereco: Endereco): Call<Endereco>
 
 
 }
