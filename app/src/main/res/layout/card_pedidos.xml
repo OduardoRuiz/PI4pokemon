@@ -10,7 +10,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="10dp"
         android:elevation="@dimen/cardview_default_elevation"
         android:padding="8dp"
         app:cardBackgroundColor="@color/pokeBlueFundo"

@@ -9,14 +9,15 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardBackgroundColor="@color/pokeBlueFundo">
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@color/pokeBlueFundo"
+        app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:id="@+id/linearLayoutCard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:clickable="true"
             android:contextClickable="true"
             android:orientation="vertical">
@@ -42,7 +43,7 @@
                     android:id="@+id/imagemPokemon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="#00FFFFFF"
+                    android:backgroundTint="@color/pokeBlueFundo"
                     android:src="@drawable/noimagepikachu"
                     app:srcCompat="@drawable/noimagepikachu" />
             </androidx.cardview.widget.CardView>
@@ -53,7 +54,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:textAlignment="center">
 
                     <TextView
                         android:id="@+id/pontosPokemon"

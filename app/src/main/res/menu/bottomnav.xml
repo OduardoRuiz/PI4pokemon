@@ -15,7 +15,7 @@
     <item
         android:id="@+id/lendarios"
         android:icon="@drawable/lendarios_icon"
-        android:title="Lendários"
+        android:title="Pokemons"
         app:showAsAction="always" />
     <item
         android:id="@+id/meucarrinho"

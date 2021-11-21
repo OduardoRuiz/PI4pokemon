@@ -65,7 +65,7 @@ class ProductViewActivity : AppCompatActivity() {
             }
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
                 progressBarOff()
-                Snackbar.make(binding.textView9, "Não foi possivel conectar ao servidor",
+                Snackbar.make(binding.textView8, "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
 
                 Log.e("ERROR", "Falha ao conectar ao serviço", t)

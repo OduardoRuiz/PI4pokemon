@@ -19,6 +19,7 @@
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
             android:scrollbarThumbHorizontal="@drawable/categoriasagua"
             android:scrollbarThumbVertical="@drawable/categoriasinseto"
             android:scrollbarTrackHorizontal="@drawable/categoriasdark"
@@ -34,7 +35,10 @@
                 android:id="@+id/containerMeusPedidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_margin="10dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
 
                 <FrameLayout
                     android:id="@+id/containerProdutosPedido"
@@ -43,6 +47,7 @@
                     android:layout_marginTop="100dp">
 
                 </FrameLayout>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
@@ -60,6 +65,28 @@
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="244dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pedidos" />
+
+        <View
+            android:id="@+id/view10"
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_marginTop="18dp"
+            android:background="@color/cardview_dark_background"
+            android:focusable="false"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

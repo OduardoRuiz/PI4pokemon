@@ -9,9 +9,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="13dp"
         android:paddingBottom="10dp"
-        app:cardBackgroundColor="@color/pokeBlueFundo">
+        app:cardBackgroundColor="@color/pokeBlueFundo"
+        app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:id="@+id/linearLayoutCardCarrinho"
@@ -30,7 +31,7 @@
                 android:layout_margin="8dp"
                 android:text="Nome pokemon"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardImagemCarrinho"
@@ -57,37 +58,52 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TextView"
-                        android:visibility="invisible" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/imageViewAdd"
-                        android:layout_width="28dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:src="@drawable/iconmais" />
+                        <ImageView
+                            android:id="@+id/imageViewAdd"
+                            android:layout_width="18dp"
+                            android:layout_height="17dp"
+                            android:layout_marginStart="119dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="7dp"
+                            android:src="@drawable/iconmais"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textViewQuantidade"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:text="0"
-                        android:textAlignment="center" />
+                        <TextView
+                            android:id="@+id/textViewQuantidade"
+                            android:layout_width="15dp"
+                            android:layout_height="22dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="7dp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/imageViewMenos"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewAdd"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageViewMenos"
-                        android:layout_width="35dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:src="@drawable/iconmenos" />
+                        <ImageView
+                            android:id="@+id/imageViewMenos"
+                            android:layout_width="23dp"
+                            android:layout_height="21dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginTop="13dp"
+                            android:layout_marginEnd="165dp"
+                            android:layout_marginBottom="4dp"
+                            android:src="@drawable/iconmenos"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewQuantidade"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </TableRow>
 
@@ -95,28 +111,50 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/pontosPokemonCarrinho"
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
-                        android:text="1000 "
-                        android:textAlignment="textEnd"
-                        android:textSize="17sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textView40"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pontos"
-                        android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/pontosPokemonCarrinho"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginBottom="3dp"
+                            android:text="1000 "
+                            android:textAlignment="textEnd"
+                            android:textSize="17sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/textView40"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageView21"
-                        android:layout_width="30dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/coin" />
+                        <TextView
+                            android:id="@+id/textView40"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:text="Pontos"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/imageView21"
+                            app:layout_constraintStart_toEndOf="@+id/pontosPokemonCarrinho"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView21"
+                            android:layout_width="30dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="100dp"
+                            android:layout_marginBottom="1dp"
+                            android:src="@drawable/coin"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </TableRow>
 

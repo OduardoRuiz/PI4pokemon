@@ -9,25 +9,12 @@
     android:background="@drawable/banner_menu_02"
     tools:context=".views.LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="327dp"
-        android:layout_height="139dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="55dp"
-        android:foreground="@drawable/pokemon_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pokemon_logo" />
-
     <EditText
         android:id="@+id/editLogin"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="E-mail"
@@ -35,7 +22,7 @@
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
 
     <EditText
         android:id="@+id/editSenha"
@@ -88,7 +75,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="60dp"
-        android:backgroundTint="@color/pokeAco"
+        android:backgroundTint="#4A9EB7B8"
         android:text="Registre-se"
         android:textAllCaps="false"
         android:textColor="@color/black"
@@ -96,4 +83,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEsqueceuSenha" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/editLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/poketsu" />
+</androidx.constraintlayout.widget.ConstraintLayout>

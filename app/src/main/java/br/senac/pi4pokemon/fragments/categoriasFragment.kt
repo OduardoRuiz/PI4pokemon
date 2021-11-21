@@ -159,7 +159,9 @@ class categoriasFragment : Fragment() {
     }
 
     fun atualizarInterface2(lista: List<Produto>?) {
+        binding.gridLayoutInflapokemon.removeAllViews()
         binding.gridLayoutCategoria.removeAllViews()
+
         lista?.forEach {
             val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
             var idPokemon = it.id
@@ -186,7 +188,7 @@ class categoriasFragment : Fragment() {
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
 
-            binding.gridLayoutCategoria.addView(pokemonBinding.root)
+            binding.gridLayoutInflapokemon.addView(pokemonBinding.root)
 
         }
 

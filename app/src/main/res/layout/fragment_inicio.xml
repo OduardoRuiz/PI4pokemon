@@ -13,17 +13,36 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="1000dp"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="789dp">
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progressBarInicio"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="156dp"
+                    android:layout_height="123dp"
+
+                    android:layout_marginStart="142dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="142dp"
+                    android:indeterminate="true"
+                    android:indeterminateDrawable="@drawable/animation"
+                    android:indeterminateDuration="4500"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:foreground="@drawable/pikachupoketsu"
                     android:src="@drawable/bannerpikachu"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -33,92 +52,101 @@
                     android:id="@+id/horizontalScrollView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/scrollView3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView8">
+                    app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+                    tools:ignore="SpeakableTextPresentCheck">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutInicio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <GridLayout
+                            android:id="@+id/gridLayoutCategoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:columnCount="58">
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp">
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/imageViewCategoria"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+
+                                        app:srcCompat="@drawable/categoriasagua" />
+                                </TableRow>
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/textViewCategoria"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="TextView"
+                                        android:textAlignment="center"
+                                        android:textSize="14sp" />
+                                </TableRow>
+
+                            </TableLayout>
+                        </GridLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView3"
+                    android:layout_width="372dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent">
 
-                        <ImageView
-                            android:id="@+id/imageView20"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/categoriasagua" />
+                        <androidx.gridlayout.widget.GridLayout
+                            android:id="@+id/pokemonInicioCategoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:columnCount="48">
 
-                        <ImageView
-                            android:id="@+id/imageView39"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/categoriasdark" />
-
-                        <ImageView
-                            android:id="@+id/imageView40"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/categoriasdragao" />
-
-                        <ImageView
-                            android:id="@+id/imageView41"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/categoriasfada" />
-
-                        <ImageView
-                            android:id="@+id/imageView42"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/categoriasfantasma" />
-
-                        <ImageView
-                            android:id="@+id/imageView43"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/categoriasgelo" />
-
-                        <ImageView
-                            android:id="@+id/imageView44"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/categoriaseletrico" />
-
-                        <ImageView
-                            android:id="@+id/imageView45"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/categoriasfogo" />
+                        </androidx.gridlayout.widget.GridLayout>
                     </LinearLayout>
                 </HorizontalScrollView>
 
                 <TableLayout
+                    android:id="@+id/tableLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="132dp"
                     android:background="#EFF8FD"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+                    app:layout_constraintTop_toBottomOf="@+id/imageView20">
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -200,6 +228,30 @@
                     </TableRow>
 
                 </TableLayout>
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="244dp"
+                    android:layout_height="73dp"
+                    android:layout_marginTop="32dp"
+                    android:src="@drawable/destaques"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="244dp"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="98dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="98dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/categorias"
+                    app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

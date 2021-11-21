@@ -19,7 +19,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="29dp"
             android:layout_marginEnd="235dp"
-            android:text="Editar Endereço"
+            android:text="Editar endereço"
             android:textColor="#7C7A7A"
             android:textSize="20sp"
             android:textStyle="bold"

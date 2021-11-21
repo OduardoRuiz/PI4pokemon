@@ -89,7 +89,7 @@ class lendariosFragment : Fragment() {
     }
 
     fun atualizarUI(lista: List<Produto>?) {
-        binding.containerProdutos.removeAllViews()
+        binding.gridLayoutLendarios.removeAllViews()
         lista?.forEach {
             val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
             val idAqui = it.id
@@ -107,7 +107,7 @@ class lendariosFragment : Fragment() {
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
 
-                binding.containerProdutos.addView(pokemonBinding.root)
+                binding.gridLayoutLendarios.addView(pokemonBinding.root)
 
         }
 

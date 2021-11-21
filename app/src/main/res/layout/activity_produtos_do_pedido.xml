@@ -12,41 +12,44 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#77E4F2FB"
+        android:backgroundTint="#77E4F2FB"
         tools:context=".views.ProdutosDoPedidoActivity">
 
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="32dp"
-            android:text="Produtos do Pedido"
-            android:textSize="25dp"
+        <View
+            android:id="@+id/view7"
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_marginTop="18dp"
+            android:background="@color/cardview_dark_background"
+            android:focusable="false"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scrollView2"
-            android:layout_width="407dp"
-            android:layout_height="669dp"
-            android:layout_marginTop="13dp"
+            android:layout_width="0dp"
+            android:layout_height="640dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="15dp"
             android:scrollbarThumbHorizontal="@drawable/categoriasagua"
             android:scrollbarThumbVertical="@drawable/categoriasinseto"
             android:scrollbarTrackHorizontal="@drawable/categoriasdark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:ignore="SpeakableTextPresentCheck">
 
             <LinearLayout
                 android:id="@+id/containerProdutosDoPedido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:orientation="vertical" />
         </androidx.core.widget.NestedScrollView>
 
@@ -64,6 +67,17 @@
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="244dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/produtosdopedido" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
