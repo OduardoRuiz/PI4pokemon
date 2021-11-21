@@ -148,18 +148,30 @@
             app:layout_constraintTop_toBottomOf="@+id/scrollView2"
             app:layout_constraintVertical_bias="1.0" />
 
+        <View
+            android:id="@+id/view4"
+            android:layout_width="fill_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/cardview_dark_background"
+            android:focusable="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="75dp"
             android:text="Confirme os dados do seu pedido"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
 
         <TextView
             android:id="@+id/textView20"
@@ -180,7 +192,7 @@
             android:layout_width="30dp"
             android:layout_height="26dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:foreground="@drawable/pokestop"
             app:layout_constraintEnd_toStartOf="@+id/textView20"
             app:layout_constraintStart_toStartOf="parent"
@@ -191,101 +203,106 @@
             android:id="@+id/textViewRuaConfirmar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
             android:text="Rua Carregando"
-            app:layout_constraintEnd_toStartOf="@+id/textViewNumeroConfirmacao2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCepConfirmar" />
 
         <TextView
             android:id="@+id/textViewCidadeConfirmar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:text="Cidade"
             app:layout_constraintEnd_toStartOf="@+id/textView24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRuaConfirmar" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewNumeroConfirmacao2" />
 
         <TextView
             android:id="@+id/textView24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="14dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text=" -"
-            app:layout_constraintBottom_toTopOf="@+id/textViewCepConfirmar"
             app:layout_constraintEnd_toStartOf="@+id/textViewEstadoConfirmar"
             app:layout_constraintStart_toEndOf="@+id/textViewCidadeConfirmar"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRuaConfirmar" />
+            app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
         <TextView
             android:id="@+id/textViewEstadoConfirmar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
             android:text="SP"
-            app:layout_constraintBottom_toTopOf="@+id/textViewCepConfirmar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView24"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRuaConfirmar" />
+            app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
         <TextView
             android:id="@+id/textView26"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:text="CEP :"
-            app:layout_constraintBottom_toTopOf="@+id/textView28"
             app:layout_constraintEnd_toStartOf="@+id/textViewCepConfirmar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCidadeConfirmar" />
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
         <TextView
             android:id="@+id/textViewCepConfirmar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="222dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="01214100"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView26"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEstadoConfirmar" />
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
         <TextView
             android:id="@+id/textView28"
             android:layout_width="148dp"
             android:layout_height="18dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="77dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="10dp"
-            android:text="Telefone contato"
+            android:layout_marginEnd="8dp"
+            android:text="Telefone contato:"
             app:layout_constraintEnd_toStartOf="@+id/textViewContato"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView26" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewCidadeConfirmar" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Complemento:"
+            app:layout_constraintEnd_toStartOf="@+id/textViewComplementoConfirmacao2"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumeroConfirmacao2"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRuaConfirmar" />
 
         <TextView
             android:id="@+id/textViewContato"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="91dp"
+            android:layout_marginEnd="32dp"
             android:text="contato carregando"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView28"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCepConfirmar" />
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
         <TextView
             android:id="@+id/textView30"
@@ -316,27 +333,50 @@
 
         <TextView
             android:id="@+id/textViewNumeroConfirmacao2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="200dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="numero"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewRuaConfirmar"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintEnd_toStartOf="@+id/textView32"
+            app:layout_constraintStart_toEndOf="@+id/textView31"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRuaConfirmar" />
 
         <TextView
             android:id="@+id/textViewComplementoConfirmacao2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Complemento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView32"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRuaConfirmar" />
+
+        <TextView
+            android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="13dp"
-            android:text="Complemento"
-            app:layout_constraintBottom_toTopOf="@+id/textViewCidadeConfirmar"
-            app:layout_constraintStart_toEndOf="@+id/textViewNumeroConfirmacao2"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Nº:"
+            app:layout_constraintEnd_toStartOf="@+id/textViewNumeroConfirmacao2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Endereço:"
+            app:layout_constraintEnd_toStartOf="@+id/textViewRuaConfirmar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
