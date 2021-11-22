@@ -1,5 +1,6 @@
 package br.senac.pi4pokemon.views
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.View
 import android.widget.Toast
@@ -15,3 +16,12 @@ fun mostrarSnackBar(view: View ,msg: String ){
 
     Snackbar.make(view,  msg, Snackbar.LENGTH_LONG).show()
 }
+
+fun mostrarDialogo(context: Context, msg: String){
+    AlertDialog.Builder(context)
+        .setMessage(msg)
+        .setPositiveButton("OK", null)
+        .create()
+        .show()
+}
+

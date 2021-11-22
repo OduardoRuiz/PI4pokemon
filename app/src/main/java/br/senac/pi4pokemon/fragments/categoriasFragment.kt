@@ -161,6 +161,8 @@ class categoriasFragment : Fragment() {
     fun atualizarInterface2(lista: List<Produto>?) {
         binding.gridLayoutInflapokemon.removeAllViews()
         binding.gridLayoutCategoria.removeAllViews()
+        binding.gridLayoutCategoria.visibility = View.GONE
+        binding.scrolviewCarregaPokemon.visibility = View.VISIBLE
 
         lista?.forEach {
             val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
@@ -196,6 +198,7 @@ class categoriasFragment : Fragment() {
     fun progressBarOff() {
         binding.progressBarCat.visibility =  View.GONE
         binding.gridLayoutCategoria.visibility = View.VISIBLE
+        binding.scrolviewCarregaPokemon.visibility = View.GONE
 
 
     }

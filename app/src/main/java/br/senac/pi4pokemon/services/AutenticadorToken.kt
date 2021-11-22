@@ -11,7 +11,9 @@ class AutenticadorToken(private val context: Context) : Interceptor, Authenticat
     override fun intercept(chain: Interceptor.Chain): Response {
         val prefs = context.getSharedPreferences(ARQUIVO_LOGIN, Context.MODE_PRIVATE)
 
+
         val token = prefs.getString("token", "") as String
+
 
 
         var request = chain.request()
@@ -26,8 +28,10 @@ class AutenticadorToken(private val context: Context) : Interceptor, Authenticat
     override fun authenticate(route: Route?, response: Response): Request? {
 
         val prefs = context.getSharedPreferences(ARQUIVO_LOGIN, Context.MODE_PRIVATE)
+        val usuario = prefs.getString("usuario", "") as String
+        val senha = prefs.getString("senha", "") as String
 
-        val user =  User(email = "duardo@duardo.com", password = "123456789")
+        val user =  User(email = usuario, password = senha)
 
         val respostaRetrofit = API(context).login.fazerLogin(user).execute()
 

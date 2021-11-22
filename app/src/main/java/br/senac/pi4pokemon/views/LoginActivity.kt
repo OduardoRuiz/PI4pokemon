@@ -71,7 +71,8 @@ class LoginActivity : AppCompatActivity() {
 
             }
 
-            val user =  User(email = "duardo@duardo.com", password = "123456789")
+            val user =  User(email = binding.editLogin.text.toString(),
+                password = binding.editSenha.text.toString())
             API(this).login.fazerLogin(user).enqueue(callback)
         }
     }

@@ -60,6 +60,8 @@ class minhaContaFragment : Fragment() {
             val intent = Intent(context, BottomNavigation::class.java)
             startActivity(intent)
         }
+
+
         return binding.root
 
     }

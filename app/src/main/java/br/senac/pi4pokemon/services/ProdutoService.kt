@@ -13,10 +13,10 @@ interface ProdutoService {
    fun listarProdutos(): Call<List<Produto>>
 
    //Busca produtos por nome
-  // @GET("/api/produtos/buscar/{nome}")
-   //fun pesquisarProdutos(@Path("nome") nome: String): Call<List<Produto>>
+   @GET("/api/produtos/buscar/{nome}")
+   fun pesquisarProdutosNome(@Path("nome") nome: String): Call<List<Produto>>
 
-   //Busca produtos por nome
+   //Busca produtos por id
     @GET("/api/produto/{id}")
    fun pesquisarProdutos(@Path("id")id: Int): Call<List<Produto>>
 
@@ -24,6 +24,11 @@ interface ProdutoService {
    //Busca produto por categoria
    @GET("/api/produtos/categoria/buscar/{categoria}")
    fun pesquisarCategoria(@Path("categoria")  categoria: String) : Call<List<Produto>>
+
+   //obert um produto par ao qrcode
+
+   @GET("/api/produto/{id}")
+   fun obterProdutoId(@Path("id")id: Int): Call<Produto>
 
 
 
