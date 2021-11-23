@@ -31,6 +31,7 @@ class inicioFragment : Fragment() {
 
         binding = FragmentInicioBinding.inflate(layoutInflater)
         atualizarCategoria()
+        atualizarPokemonsDestaque()
         return binding.root
     }
 
@@ -53,7 +54,7 @@ class inicioFragment : Fragment() {
 
                 } else {
 
-                    Snackbar.make(binding.imageView48,
+                    Snackbar.make(binding.imageView8,
                         "Não foi possivel carregar os pokemons",
                         Snackbar.LENGTH_LONG).show()
 
@@ -125,7 +126,7 @@ class inicioFragment : Fragment() {
 
                 } else {
 
-                    Snackbar.make(binding.imageView48,
+                    Snackbar.make(binding.imageView8,
                         "Não foi possivel carregar os pokemons",
                         Snackbar.LENGTH_LONG).show()
 
@@ -137,7 +138,7 @@ class inicioFragment : Fragment() {
 
             override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
                 progressBarOff()
-                Snackbar.make(binding.imageView48,
+                Snackbar.make(binding.imageView8,
                     "Não foi possivel conectar ao servidor",
                     Snackbar.LENGTH_LONG).show()
 
@@ -188,6 +189,77 @@ class inicioFragment : Fragment() {
 
     }
 
+    fun atualizarPokemonsDestaque() {
+
+
+
+
+
+
+        val callback = object : Callback<List<Produto>> {
+
+            override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {
+                progressBarOff()
+                if (response.isSuccessful) {
+                    val listaProduto = response.body()
+
+                    atualizarUI(listaProduto)
+
+
+
+                } else {
+
+                    Snackbar.make(binding.imageView8, "Não foi possivel carregar os pokemons",
+                        Snackbar.LENGTH_LONG).show()
+
+                    Log.e("ERROR", response.errorBody().toString())
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<List<Produto>>, t: Throwable) {
+                progressBarOff()
+                Snackbar.make(binding.imageView8, "Não foi possivel conectar ao servidor",
+                    Snackbar.LENGTH_LONG).show()
+
+                Log.e("ERROR", "Falha ao conectar ao serviço", t)
+
+            }
+
+
+        }
+        API(this.requireContext()).pokemonAberto.produtosDestaques().enqueue(callback)
+        progressBarOn()
+
+
+    }
+
+    fun atualizarUI(lista: List<Produto>?) {
+        binding.gridLayoutDestaques.removeAllViews()
+        lista?.forEach {
+            val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
+            val idAqui = it.id
+            pokemonBinding.nomePokemon.text = it.nome
+            pokemonBinding.pontosPokemon.text = it.preco
+            pokemonBinding.linearLayoutCard.setOnClickListener {
+
+
+                val intent = Intent(context, ProductViewActivity::class.java)
+                intent.putExtra("id",idAqui)
+                startActivity(intent)
+
+            }
+
+            Picasso.get()
+                .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
+
+            binding.gridLayoutDestaques.addView(pokemonBinding.root)
+
+        }
+
+    }
+
     fun progressBarOff() {
         binding.progressBarInicio.visibility = View.GONE
         binding.pokemonInicioCategoria.visibility = View.VISIBLE
@@ -200,4 +272,5 @@ class inicioFragment : Fragment() {
         binding.pokemonInicioCategoria.visibility = View.INVISIBLE
 
     }
+
 }

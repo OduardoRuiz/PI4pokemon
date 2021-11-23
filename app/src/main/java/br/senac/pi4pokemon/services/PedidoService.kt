@@ -11,4 +11,7 @@ interface PedidoService {
     @GET("/api/pedidos/show/")
     fun listarPedidosUser(): Call<List<Pedidos>>
 
+    @GET("/api/pedidos/ultimo")
+    fun listarUltimoPedido(): Call<List<Pedidos>>
+
 }

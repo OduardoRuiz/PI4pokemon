@@ -20,24 +20,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ProgressBar
-                    android:id="@+id/progressBarInicio"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="156dp"
-                    android:layout_height="123dp"
-
-                    android:layout_marginStart="142dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="142dp"
-                    android:indeterminate="true"
-                    android:indeterminateDrawable="@drawable/animation"
-                    android:indeterminateDuration="4500"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
-
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="wrap_content"
@@ -49,17 +31,55 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <HorizontalScrollView
+                    android:id="@+id/scrollViewDestaques"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="#EFF8FD"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView23"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView20"
+                    tools:ignore="SpeakableTextPresentCheck">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.gridlayout.widget.GridLayout
+                            android:id="@+id/gridLayoutDestaques"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:columnCount="80">
+
+                        </androidx.gridlayout.widget.GridLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="244dp"
+                    android:layout_height="73dp"
+                    android:layout_marginTop="32dp"
+                    android:src="@drawable/destaques"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+                <HorizontalScrollView
                     android:id="@+id/horizontalScrollView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView23"
                     tools:ignore="SpeakableTextPresentCheck">
 
                     <LinearLayout
@@ -108,16 +128,26 @@
                     </LinearLayout>
                 </HorizontalScrollView>
 
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="73dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/categorias"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollViewDestaques" />
+
                 <HorizontalScrollView
                     android:id="@+id/scrollView3"
-                    android:layout_width="372dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginBottom="32dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
@@ -135,123 +165,22 @@
                     </LinearLayout>
                 </HorizontalScrollView>
 
-                <TableLayout
-                    android:id="@+id/tableLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="132dp"
-                    android:background="#EFF8FD"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView20">
+                <ProgressBar
+                    android:id="@+id/progressBarInicio"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="156dp"
+                    android:layout_height="123dp"
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/imageView51"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#EFF8FD"
-                            android:src="@drawable/snorlax" />
-
-                        <ImageView
-                            android:id="@+id/imageView48"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/eevee" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <Button
-                            android:id="@+id/button9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            android:backgroundTint="@color/pokeBlueBotao"
-                            android:text="Snorlax LV 1" />
-
-                        <Button
-                            android:id="@+id/button10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            android:backgroundTint="@color/pokeBlueBotao"
-                            android:text="Eevee LV 4" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/imageView49"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/haunter" />
-
-                        <ImageView
-                            android:id="@+id/imageView50"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/mew" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <Button
-                            android:id="@+id/button11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            android:backgroundTint="@color/pokeBlueBotao"
-                            android:text="Haunter LV 10" />
-
-                        <Button
-                            android:id="@+id/buttonIncio"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            android:backgroundTint="@color/pokeBlueBotao"
-                            android:text="Mew LV 10" />
-                    </TableRow>
-
-                </TableLayout>
-
-                <ImageView
-                    android:id="@+id/imageView20"
-                    android:layout_width="244dp"
-                    android:layout_height="73dp"
-                    android:layout_marginTop="32dp"
-                    android:src="@drawable/destaques"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
-
-                <ImageView
-                    android:id="@+id/imageView23"
-                    android:layout_width="244dp"
-                    android:layout_height="73dp"
-                    android:layout_marginStart="98dp"
+                    android:layout_marginStart="129dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="98dp"
-                    android:layout_marginBottom="5dp"
-                    android:src="@drawable/categorias"
-                    app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+                    android:layout_marginEnd="130dp"
+                    android:indeterminate="true"
+                    android:indeterminateDrawable="@drawable/animation"
+                    android:indeterminateDuration="4500"
+                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

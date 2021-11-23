@@ -20,11 +20,11 @@
     <item
         android:id="@+id/meucarrinho"
         android:icon="@drawable/meucarrinho_icon"
-        android:title="Meu Carrinho"
+        android:title="Carrinho"
         app:showAsAction="always" />
     <item
         android:id="@+id/minhaconta"
         android:icon="@drawable/minhaconta_icon"
-        android:title="Minha Conta"
+        android:title="Perfil"
         app:showAsAction="always" />
 </menu>

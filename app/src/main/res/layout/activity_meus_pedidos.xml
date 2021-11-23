@@ -5,13 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeRefreshTodos"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#77E4F2FB"
+    android:backgroundTint="#77E4F2FB">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#77E4F2FB"
+        android:backgroundTint="#77E4F2FB"
         tools:context=".views.BottomNavigation">
 
 
@@ -20,6 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="100dp"
+            android:background="#77E4F2FB"
+            android:backgroundTint="#77E4F2FB"
             android:scrollbarThumbHorizontal="@drawable/categoriasagua"
             android:scrollbarThumbVertical="@drawable/categoriasinseto"
             android:scrollbarTrackHorizontal="@drawable/categoriasdark"

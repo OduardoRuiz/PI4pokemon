@@ -72,21 +72,22 @@ class BottomNavigation : AppCompatActivity() {
         val searchView = searchItem?.actionView as SearchView
 
         searchView?.let {
-            val querryListiner = object: SearchView.OnQueryTextListener {
+            val querryListiner = object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     query?.let {
 
                         searchView.clearFocus()
                         searchItem.collapseActionView()
-                    val searchFragment = SearchFragment.newInstance(it)
+                        val searchFragment = SearchFragment.newInstance(it)
 
-                        supportFragmentManager.beginTransaction().replace(R.id.container, searchFragment).commit()
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.container, searchFragment).commit()
                     }
                     return true
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                   return true
+                    return true
                 }
 
             }
@@ -117,8 +118,8 @@ class BottomNavigation : AppCompatActivity() {
 
             val idProduto = data.getStringExtra("qrcode") as String
 
-           // mostrarDialogo(this, "${idProduto}")
-          obterProduto(idProduto.toInt())
+            // mostrarDialogo(this, "${idProduto}")
+            obterProduto(idProduto.toInt())
 
         }
     }
@@ -131,12 +132,13 @@ class BottomNavigation : AppCompatActivity() {
 
                     val idAqui = prod.id
                     AlertDialog.Builder(this@BottomNavigation)
-                        .setTitle("Produto Escaneado, para ver com detalhes clique no botão")
-                        .setMessage("Nome pokemon: ${prod.nome}, Valor em pontos: ${prod.preco}")
+                        .setTitle("Pokemon:  ${prod.nome}")
+                        .setMessage("Para ver, clique abaixo")
                         .setCancelable(false)
                         .setPositiveButton("Ver detalhes") { dialogInterface, i ->
-                            val i = Intent(this@BottomNavigation, ProductViewActivity::class.java)
-                            intent.putExtra("id",idAqui)
+                            val i = Intent(this@BottomNavigation,
+                                ProductViewActivity::class.java)
+                            intent.putExtra("id", idAqui)
                             startActivity(i)
                             setResult(RESULT_CANCELED)
                             finish()

@@ -31,6 +31,7 @@
             android:parentActivityName=".views.BottomNavigation" />
         <activity
             android:name=".views.PedidoConfirmadoActivity"
+            android:parentActivityName=".views.BottomNavigation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -63,7 +63,7 @@ class PedidoConfirmadoActivity : AppCompatActivity() {
             }
 
         }
-        API(this).pedido.listarPedidosUser().enqueue(callback)
+        API(this).pedido.listarUltimoPedido().enqueue(callback)
 
 
 
