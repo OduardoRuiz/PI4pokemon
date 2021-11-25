@@ -17,6 +17,7 @@ import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
 import br.senac.pi4pokemon.views.ProductViewActivity
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -188,7 +189,8 @@ class categoriasFragment : Fragment() {
 
 
             Picasso.get()
-                .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
+                .load("http://10.0.2.2:8000/${it.imagem}").memoryPolicy(MemoryPolicy.NO_CACHE).into(pokemonBinding.imagemPokemon)
+
 
             binding.gridLayoutInflapokemon.addView(pokemonBinding.root)
 

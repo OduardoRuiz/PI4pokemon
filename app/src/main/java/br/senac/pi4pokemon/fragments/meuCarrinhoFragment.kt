@@ -18,6 +18,7 @@ import br.senac.pi4pokemon.views.ProductViewActivity
 import br.senac.pi4pokemon.views.mostrarSnackBar
 
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -113,6 +114,7 @@ class meuCarrinhoFragment : Fragment() {
             }
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}")
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
                 .into(pokemonBinding.imagemPokemonCarrinho)
 
 
@@ -211,6 +213,10 @@ class meuCarrinhoFragment : Fragment() {
         API(this.requireContext()).carrinho.removeProdutoCarrinho(remove).enqueue(callbackAdd)
         progressBarOn()
 
+
+    }
+
+    fun uploadfoto() {
 
     }
 

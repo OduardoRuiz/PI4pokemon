@@ -16,6 +16,7 @@ import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
 import br.senac.pi4pokemon.views.ProductViewActivity
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -103,7 +104,7 @@ class inicioFragment : Fragment() {
 
 
             Picasso.get()
-                .load("http://10.0.2.2:8000/${it.icone}").into(pokemonBinding.imageViewCategoria)
+                .load("http://10.0.2.2:8000/${it.icone}").memoryPolicy(MemoryPolicy.NO_CACHE).into(pokemonBinding.imageViewCategoria)
 
             binding.gridLayoutCategoria.addView(pokemonBinding.root)
 
@@ -181,7 +182,7 @@ class inicioFragment : Fragment() {
 
 
             Picasso.get()
-                .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
+                .load("http://10.0.2.2:8000/${it.imagem}").memoryPolicy(MemoryPolicy.NO_CACHE).into(pokemonBinding.imagemPokemon)
 
             binding.pokemonInicioCategoria.addView(pokemonBinding.root)
 
@@ -252,7 +253,7 @@ class inicioFragment : Fragment() {
             }
 
             Picasso.get()
-                .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
+                .load("http://10.0.2.2:8000/${it.imagem}").memoryPolicy(MemoryPolicy.NO_CACHE).into(pokemonBinding.imagemPokemon)
 
             binding.gridLayoutDestaques.addView(pokemonBinding.root)
 

@@ -8,6 +8,7 @@ import android.view.View
 import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityConfirmacaoBinding
 import br.senac.pi4pokemon.databinding.ActivityProductViewBinding
+import br.senac.pi4pokemon.databinding.CardConfirmacaoBinding
 import br.senac.pi4pokemon.databinding.CardPokemonsBinding
 import br.senac.pi4pokemon.model.Carrinho
 import br.senac.pi4pokemon.model.Endereco
@@ -22,6 +23,7 @@ import retrofit2.Response
 class ConfirmacaoActivity : AppCompatActivity() {
     lateinit var binding: ActivityConfirmacaoBinding
     var total: Double = 0.0
+    var quants = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityConfirmacaoBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -94,11 +96,14 @@ class ConfirmacaoActivity : AppCompatActivity() {
         binding.containerProdutosConfirmacao.removeAllViews()
         lista?.forEach {
             val idAquiFrag = it.id
-            val pokemonBinding = CardPokemonsBinding.inflate(layoutInflater)
+            val pokemonBinding = CardConfirmacaoBinding.inflate(layoutInflater)
             pokemonBinding.nomePokemon.text = it.nome
            pokemonBinding.pontosPokemon.text = it.preco
+            pokemonBinding.textViewQuantidadeConfirmacao.text = it.quantidade.toString()
+
 
                 total += it.preco.toDouble()
+                quants += it.quantidade
 
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}")
@@ -108,7 +113,9 @@ class ConfirmacaoActivity : AppCompatActivity() {
         }
         // adiciona valor total
         binding.textViewValorTotal.text = total.toString()
+        binding.textViewQuantidadeTotalConfirmacao.text = quants.toString()
 
+        quants = 0
         total = 0.0
     }
 

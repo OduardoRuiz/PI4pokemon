@@ -13,6 +13,9 @@ interface CategoriaService {
     @GET("/api/categorias/")
     fun listarCategoria(): Call<List<Categoria>>
 
+    @GET("/api/categorias/{id}")
+    fun obterCategoriaId(@Path("id")id: Int): Call<List<Produto>>
+
 
 
 }

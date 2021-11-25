@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<Token>, t: Throwable) {
-                  Toast.makeText(this@LoginActivity, "", Toast.LENGTH_LONG).show()
+                  Toast.makeText(this@LoginActivity, "Verique usuario ou senha ou faça o cadastro", Toast.LENGTH_LONG).show()
                     Log.e("LoginActivity", "onCreate", t)
                 }
 

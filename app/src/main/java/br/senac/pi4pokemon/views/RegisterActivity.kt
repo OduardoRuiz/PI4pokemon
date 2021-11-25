@@ -70,7 +70,8 @@ class RegisterActivity : AppCompatActivity() {
         val emailConfirmar  = binding.editTextEmailConfirmarRegistrar.text.toString()
         val senha = binding.editTextSenhaRegistrar.text.toString()
         val senhaConfirmar = binding.editTextSenhaConfirmar.text.toString()
-        if (email == emailConfirmar && senha == senhaConfirmar){
+        if (email == emailConfirmar && senha == senhaConfirmar &&
+            senha.length >= 8 && senhaConfirmar.length >= 8  ){
 
             val novoUser = User(name = nome, password = senhaConfirmar, email = emailConfirmar)
             API(this).usuario.registrarUser(user = novoUser).enqueue(callback)
@@ -80,7 +81,8 @@ class RegisterActivity : AppCompatActivity() {
 
 
         } else {
-            mostrarToast(this, "Revise informações, e-mail ou senha nao conferem")
+            mostrarToast(this, "Revise informações, e-mail ou senha nao conferem," +
+                    " a senha necessita de 8 caracteres")
         }
 
 

@@ -11,6 +11,7 @@ import android.view.View
 import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityProductViewBinding
 import br.senac.pi4pokemon.databinding.CardPokemonsBinding
+import br.senac.pi4pokemon.model.Categoria
 
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.model.Token
@@ -18,6 +19,7 @@ import br.senac.pi4pokemon.services.API
 import br.senac.pi4pokemon.services.ARQUIVO_LOGIN
 import br.senac.pi4pokemon.services.AutenticadorToken
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import okhttp3.Request
 import okhttp3.internal.http2.Header
@@ -35,7 +37,7 @@ class ProductViewActivity : AppCompatActivity() {
         binding = ActivityProductViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         atualizarPokemons()
-        atualizarVejaMais()
+
 
 
 
@@ -111,11 +113,15 @@ class ProductViewActivity : AppCompatActivity() {
             binding.textPontosPokemonProductView.text = it.preco
             binding.textDescricaoProdutoView.text = it.descricao
 
+         val  idCategoria = it.categoria_id
+            atualizarVejaMais(idCategoria)
+
 
 
 
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}")
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
                 .into(binding.imagePokemonProductView)
 
 
@@ -128,7 +134,7 @@ class ProductViewActivity : AppCompatActivity() {
 
     }
 
-    fun atualizarVejaMais() {
+    fun atualizarVejaMais(idCategoria: Int) {
 
 
 
@@ -168,7 +174,7 @@ class ProductViewActivity : AppCompatActivity() {
 
 
         }
-        API(this).pokemonAberto.produtosDestaques().enqueue(callback)
+        API(this).categoria.obterCategoriaId(idCategoria).enqueue(callback)
         progressBarOn()
 
 
@@ -191,7 +197,7 @@ class ProductViewActivity : AppCompatActivity() {
             }
 
             Picasso.get()
-                .load("http://10.0.2.2:8000/${it.imagem}").into(pokemonBinding.imagemPokemon)
+                .load("http://10.0.2.2:8000/${it.imagem}").memoryPolicy(MemoryPolicy.NO_CACHE).into(pokemonBinding.imagemPokemon)
 
             binding.gridLayoutVejaMais.addView(pokemonBinding.root)
 

@@ -10,6 +10,7 @@ import br.senac.pi4pokemon.databinding.ActivityMeuPerfilBinding
 import br.senac.pi4pokemon.model.User
 import br.senac.pi4pokemon.services.API
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -78,6 +79,7 @@ class MeuPerfilActivity : AppCompatActivity() {
 
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.avatar}")
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
                 .into(binding.imageViewUsuario)
 
 

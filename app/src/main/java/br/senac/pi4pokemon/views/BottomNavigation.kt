@@ -16,6 +16,7 @@ import br.senac.pi4pokemon.databinding.ActivityBottomNavigationBinding
 import br.senac.pi4pokemon.fragments.*
 import br.senac.pi4pokemon.model.Produto
 import br.senac.pi4pokemon.services.API
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,8 +29,10 @@ class BottomNavigation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+
         binding = ActivityBottomNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.bottomNavigationView.itemIconTintList = null
 
 
@@ -138,7 +141,7 @@ class BottomNavigation : AppCompatActivity() {
                         .setPositiveButton("Ver detalhes") { dialogInterface, i ->
                             val i = Intent(this@BottomNavigation,
                                 ProductViewActivity::class.java)
-                            intent.putExtra("id", idAqui)
+                            i.putExtra("id", idAqui)
                             startActivity(i)
                             setResult(RESULT_CANCELED)
                             finish()

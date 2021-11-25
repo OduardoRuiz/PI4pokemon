@@ -1,11 +1,11 @@
 package br.senac.pi4pokemon.services
 
 
+import android.media.Image
 import br.senac.pi4pokemon.model.User
+import okhttp3.MultipartBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface UserService {
 
@@ -17,4 +17,14 @@ interface UserService {
 
     @POST("/api/registrar")
     fun registrarUser(@Body user: User): Call<User>
+
+    @Multipart
+    @POST("/api/user/avatar")
+    fun uploadfoto(@Part("imagem") image: MultipartBody.Part): Call<Void>
+
+
+
+
+
+
 }
