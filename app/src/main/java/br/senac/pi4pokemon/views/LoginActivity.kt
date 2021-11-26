@@ -33,8 +33,8 @@ class LoginActivity : AppCompatActivity() {
 
             val callback = object: Callback<Token> {
                 override fun onResponse(call: Call<Token>, response: Response<Token>) {
-                    val token = response.body()
 
+                    val token = response.body()
                     if (response.isSuccessful && token != null) {
 
                         val  editor = getSharedPreferences(ARQUIVO_LOGIN, Context.MODE_PRIVATE).edit()
@@ -50,11 +50,8 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this@LoginActivity, "Login Efetuado", Toast.LENGTH_LONG).show()
 
                     } else {
-                        var msg = response.message().toString()
-                        if (msg == "") {
+                        var msg = "Não foi possivel logar"
 
-                            msg = "Não foi possivel efetuar login"
-                        }
                         Toast.makeText(this@LoginActivity, msg, Toast.LENGTH_LONG).show()
                         response.errorBody()?.let {
                             Log.e("LoginActivity", it.string())

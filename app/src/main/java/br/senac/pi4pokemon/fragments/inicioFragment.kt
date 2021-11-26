@@ -30,13 +30,13 @@ class inicioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentInicioBinding.inflate(layoutInflater)
-        atualizarCategoria()
+        binding = FragmentInicioBinding.inflate(inflater)
+        atualizarCategoria(inflater = inflater)
         atualizarPokemonsDestaque()
         return binding.root
     }
 
-    fun atualizarCategoria() {
+    fun atualizarCategoria(inflater: LayoutInflater) {
 
 
         val callback = object : Callback<List<Categoria>> {
@@ -50,7 +50,7 @@ class inicioFragment : Fragment() {
 
 
                     val listaProduto = response.body()
-                    atualizarInterface(listaProduto)
+                    atualizarInterface(listaProduto, inflater = inflater)
 
 
                 } else {
@@ -87,10 +87,10 @@ class inicioFragment : Fragment() {
 
     }
 
-    fun atualizarInterface(lista: List<Categoria>?) {
+    fun atualizarInterface(lista: List<Categoria>?,  inflater: LayoutInflater) {
         binding.gridLayoutCategoria.removeAllViews()
         lista?.forEach {
-            val pokemonBinding = FragmentCategoriasBinding.inflate(layoutInflater)
+            val pokemonBinding = FragmentCategoriasBinding.inflate(inflater)
             var idAqui = it.nome
             pokemonBinding.textViewCategoria.text = it.nome
 
