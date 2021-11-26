@@ -5,6 +5,8 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -31,7 +33,9 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.BufferedOutputStream
 import java.io.File
+import java.io.FileOutputStream
 
 
 class minhaContaFragment : Fragment() {
@@ -72,7 +76,7 @@ class minhaContaFragment : Fragment() {
         }
         binding.buttonMudaImagem.setOnClickListener {
             AlertDialog.Builder(this.requireContext())
-                .setTitle("muda foto")
+                .setTitle("Alterar foto perfil")
                 .setCancelable(true)
                 .setNeutralButton("Escolher imagem") { _: DialogInterface, _: Int ->
                     val grapPhoto = Intent(
@@ -235,15 +239,22 @@ class minhaContaFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == 1){
-            val contactUri: Uri? = data?.data
-            val file = contactUri?.toFile()
+            var selectedImageUri: Uri = data?.data as Uri
+
+            val input = context?.contentResolver?.openInputStream(selectedImageUri);
+            val img = BitmapFactory.decodeStream(input)
+            //Substituir this por context no fragmento
+            val file = File(context?.cacheDir, "imagem.png")
+            val os = BufferedOutputStream(FileOutputStream(file))
+            img.compress(Bitmap.CompressFormat.PNG, 100, os)
+            os.close()
             val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file)
             val body = MultipartBody.Part.createFormData("imagem", file?.name, requestFile);
 
             val callback = object: Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                    if (response.isSuccessful){
-
+                       atualizarPerfil()
                        Picasso.get()
                            .load("http://10.0.2.2:8000/${usuario.avatar}").memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.imageViewUsuarioMinhaConta)
 
@@ -268,6 +279,7 @@ class minhaContaFragment : Fragment() {
 
             }
             API(this.requireContext()).usuario.uploadfoto(body).enqueue(callback)
+
 
         }
     }

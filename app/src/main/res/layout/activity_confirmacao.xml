@@ -393,6 +393,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="8dp"
+            android:foreground="@drawable/carrinhocompras_icon"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintStart_toEndOf="@+id/textView30"
             app:layout_constraintTop_toBottomOf="@+id/textViewContato"

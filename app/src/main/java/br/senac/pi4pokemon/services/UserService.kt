@@ -20,7 +20,7 @@ interface UserService {
 
     @Multipart
     @POST("/api/user/avatar")
-    fun uploadfoto(@Part("imagem") image: MultipartBody.Part): Call<Void>
+    fun uploadfoto(@Part image: MultipartBody.Part): Call<Void>
 
 
 

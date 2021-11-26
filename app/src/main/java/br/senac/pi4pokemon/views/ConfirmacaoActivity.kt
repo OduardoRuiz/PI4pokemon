@@ -102,7 +102,7 @@ class ConfirmacaoActivity : AppCompatActivity() {
             pokemonBinding.textViewQuantidadeConfirmacao.text = it.quantidade.toString()
 
 
-                total += it.preco.toDouble()
+                total   += it.preco.toDouble() * it.quantidade
                 quants += it.quantidade
 
             Picasso.get()

@@ -83,14 +83,7 @@ class ProdutosDoPedidoActivity : AppCompatActivity() {
             val idAqui = it.id
             pokemonBinding.nomePokemon.text = it.nome
             pokemonBinding.pontosPokemon.text = it.preco
-            pokemonBinding.linearLayoutCard.setOnClickListener {
 
-
-                val intent = Intent(this, ProductViewActivity::class.java)
-                intent.putExtra("id",idAqui)
-                startActivity(intent)
-
-            }
 
             Picasso.get()
                 .load("http://10.0.2.2:8000/${it.imagem}").memoryPolicy(MemoryPolicy.NO_CACHE).into(pokemonBinding.imagemPokemon)

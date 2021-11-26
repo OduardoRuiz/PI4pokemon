@@ -94,7 +94,7 @@ class NewAdressActivity : AppCompatActivity() {
 
                 )
             API(this).endereco.cadastraEndereco(endereco = enderecoNovo).enqueue(callback)
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, BottomNavigation::class.java)
             startActivity(intent)
 
 

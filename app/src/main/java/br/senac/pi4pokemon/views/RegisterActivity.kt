@@ -1,14 +1,18 @@
 package br.senac.pi4pokemon.views
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import br.senac.pi4pokemon.R
 import br.senac.pi4pokemon.databinding.ActivityRegisterBinding
 import br.senac.pi4pokemon.model.Endereco
+import br.senac.pi4pokemon.model.Token
 import br.senac.pi4pokemon.model.User
 import br.senac.pi4pokemon.services.API
+import br.senac.pi4pokemon.services.ARQUIVO_LOGIN
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,6 +47,7 @@ class RegisterActivity : AppCompatActivity() {
 
                 if (response.isSuccessful) {
 
+
                     mostrarToast(this@RegisterActivity, "Cadastro efetuado")
 
 
@@ -75,8 +80,10 @@ class RegisterActivity : AppCompatActivity() {
 
             val novoUser = User(name = nome, password = senhaConfirmar, email = emailConfirmar)
             API(this).usuario.registrarUser(user = novoUser).enqueue(callback)
-            val intent = Intent(this, NewAdressActivity::class.java)
-            startActivity(intent)
+
+            login(usuario = emailConfirmar, senha = senhaConfirmar)
+
+
 
 
 
@@ -87,5 +94,55 @@ class RegisterActivity : AppCompatActivity() {
 
 
 
+    }
+
+    fun login(usuario: String, senha: String) {
+
+
+        val callback = object: Callback<Token> {
+            override fun onResponse(call: Call<Token>, response: Response<Token>) {
+                val token = response.body()
+
+                if (response.isSuccessful && token != null) {
+
+
+                    val  editor = getSharedPreferences(ARQUIVO_LOGIN, Context.MODE_PRIVATE).edit()
+
+                    editor.putString("usuario", usuario)
+                    editor.putString("senha", senha)
+                    editor.putString("token", token.token)
+                    editor.apply()
+
+
+                    val intent = Intent(this@RegisterActivity, NewAdressActivity::class.java)
+                    startActivity(intent)
+
+                    Toast.makeText(this@RegisterActivity, "Login Efetuado", Toast.LENGTH_LONG).show()
+
+                } else {
+                    var msg = response.message().toString()
+                    if (msg == "") {
+
+                        msg = "Não foi possivel efetuar login"
+                    }
+                    Toast.makeText(this@RegisterActivity, msg, Toast.LENGTH_LONG).show()
+                    response.errorBody()?.let {
+                        Log.e("LoginActivity", it.string())
+                    }
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<Token>, t: Throwable) {
+                Toast.makeText(this@RegisterActivity, "Verique usuario ou senha ou faça o cadastro", Toast.LENGTH_LONG).show()
+                Log.e("LoginActivity", "onCreate", t)
+            }
+
+        }
+
+        val user =  User(email = usuario,
+            password = senha)
+        API(this).login.fazerLogin(user).enqueue(callback)
     }
 }
