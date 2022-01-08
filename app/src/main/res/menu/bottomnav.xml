@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/inicio"
+        android:icon="@drawable/inicio_icon"
+        android:title="Inicio"
+        app:showAsAction="always|never" />
+    <item
+        android:id="@+id/categorias"
+        android:icon="@drawable/categoria_icon"
+        android:title="Categorias"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/lendarios"
+        android:icon="@drawable/lendarios_icon"
+        android:title="Pokemons"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/meucarrinho"
+        android:icon="@drawable/meucarrinho_icon"
+        android:title="Carrinho"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/minhaconta"
+        android:icon="@drawable/minhaconta_icon"
+        android:title="Perfil"
+        app:showAsAction="always" />
+</menu>

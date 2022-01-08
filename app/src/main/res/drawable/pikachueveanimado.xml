@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/selected" android:oneshot="false">
+    <item android:drawable="@drawable/pikachueve1" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve2" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve3" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve4" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve5" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve6" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve7" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve8" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve9" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve10" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve11" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve12" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve13" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve14" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve15" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve16" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve17" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve18" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve19" android:duration="70" />
+    <item android:drawable="@drawable/pikachueve20" android:duration="70" />
+
+</animation-list>
