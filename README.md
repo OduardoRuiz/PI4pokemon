@@ -36,7 +36,7 @@ Para usar Poketsu, é necessario abrir o projeto na IDE escolhida, e realizar o 
 
 ## 🤝 Colaboradores
 
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
+Agradeço às seguintes pessoas que contribuíram para este projeto:
 
 <table>
   <tr>
